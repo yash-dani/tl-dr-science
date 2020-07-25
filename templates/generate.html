@@ -1,18 +1,21 @@
 <html>
 	<body>
-		<div class="content">
+		<div class="content form-group container-sm">
 			<h1 class="logo">📠</h1>
 			<h1>tl;dr science</h1>
 			<p>science abstracts a second grader can understand</p>
 			<form> 
 		        <textarea rows="20" cols="100" name="Description"
-		        id="Description" placeholder="Enter some Science 🧬"></textarea> 
+		        id="Description" placeholder="Enter some Science 🧬"></textarea><br><br>
+		        <button type="submit" class="btn btn-outline-primary">submit</button>
 		    </form> 
-		    <p class="footer">Powered by GPT-3. Made with ♥️ by Yash & Cindy.</p>
+		    <p class="footer">Powered by GPT-3. Made by Yash & Cindy.</p><br>
 		</div>
 
 	</body>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Roboto&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
 	<style>
 		body {
 			height:auto;
@@ -62,14 +65,20 @@
 			font-family: 'Roboto', sans-serif;
 		}
 		textarea {
-			border-radius: 25px;
+			border-radius: 10px;
   			border: 2px solid #EE63DA;
   			padding: 20px;
 			height:auto;
 			width: auto;
 			font-size: 15px;
 			font-family: 'Roboto', sans-serif;
+			color: black;
 
 		}
+		button {
+			color: white;
+			background-color: #EE63DA;
+		}
+		
 	</style>
 </html>
