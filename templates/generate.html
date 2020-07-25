@@ -5,8 +5,8 @@
 			<h1>tl;dr science</h1>
 			<p>science abstracts a second grader can understand</p>
 			<form> 
-		        <textarea rows="10" cols="50" name="Description"
-		        id="Description" placeholder="Enter an abstract..."></textarea> 
+		        <textarea rows="20" cols="100" name="Description"
+		        id="Description" placeholder="Enter some Science 🧬"></textarea> 
 		    </form> 
 		    <p class="footer">Powered by GPT-3. Made with ♥️ by Yash & Cindy.</p>
 		</div>
@@ -15,8 +15,13 @@
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Roboto&display=swap" rel="stylesheet">
 	<style>
 		body {
+			height:auto;
+			min-height:100%;
+			height:auto !important;        /* for IE as it does not support min-height */
+			height:100%;
 			background-color: #045de9;
 			background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%); color: white;
+		
 		}
 		h1 {
 			font-size: 75px;
@@ -26,12 +31,17 @@
 			margin-bottom: 1%;
 		}
 		div {
+			height:auto;
+			min-height:50%;
+			height:auto !important;        /* for IE as it does not support min-height */
+			height:50%;
 			position: absolute;
 			top: 50%;
 			left: 50%;
 			transform: translate(-50%, -50%);
 			font-family: 'Montserrat', sans-serif;
 			font-weight: 800;
+
 		}
 		p {
 			text-align: center;
@@ -45,12 +55,19 @@
 			font-family: 'Roboto', sans-serif;
 		}
 		form {
+			height: auto;
+			width: auto;
 			font-size: 15px;
 			text-align: center;
 			font-family: 'Roboto', sans-serif;
 		}
 		textarea {
-			font-size: 20px;
+			border-radius: 25px;
+  			border: 2px solid #EE63DA;
+  			padding: 20px;
+			height:auto;
+			width: auto;
+			font-size: 15px;
 			font-family: 'Roboto', sans-serif;
 
 		}
