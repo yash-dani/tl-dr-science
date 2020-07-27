@@ -4,12 +4,17 @@
 			<h1 class="logo">📠</h1>
 			<h1>tl;dr science</h1>
 			<p>science abstracts a second grader can understand</p>
-			<form> 
-		        <textarea rows="20" cols="100" name="Description"
-		        id="Description" placeholder="Enter some Science 🧬"></textarea><br><br>
+			{% if message %}
+        		<p>{{ message }}</p>
+    		{% else %}
+			<form method="POST"> 
+		        <textarea rows="20" cols="100" name="abstract"
+		        id="abstract" placeholder="Enter some Science 🧬"></textarea><br><br>
 		        <button type="submit" class="btn btn-outline-primary">submit</button>
 		    </form> 
+		    {% endif %}
 		    <p class="footer">Powered by GPT-3. Made by Yash & Cindy.</p><br>
+
 		</div>
 
 	</body>
@@ -18,13 +23,14 @@
 
 	<style>
 		body {
-			height:auto;
-			min-height:100%;
-			height:auto !important;        /* for IE as it does not support min-height */
-			height:100%;
-			background-color: #045de9;
-			background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%); color: white;
-		
+			/* background-image: url('gpt3emailbkgnd.png'); */
+			background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);
+			color: white;
+			height: auto;
+			background-attachment: fixed;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
 		}
 		h1 {
 			font-size: 75px;
@@ -66,7 +72,7 @@
 		}
 		textarea {
 			border-radius: 10px;
-  			border: 2px solid #EE63DA;
+  			border: 4px solid #EE63DA;
   			padding: 20px;
 			height:auto;
 			width: auto;
