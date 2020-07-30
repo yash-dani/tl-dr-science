@@ -48,8 +48,9 @@
 			margin-bottom: 1%;
 		}
 		.content {
-			min-height:50%;       /* for IE as it does not support min-height */
+			min-height:75%;       /* for IE as it does not support min-height */
 			max-height:100%;
+			width: 100%;
 			position: relative;
 			top: 50%;
 			left: 50%;
@@ -80,8 +81,11 @@
 			border-radius: 10px;
   			border: 4px solid #EE63DA;
   			padding: 20px;
-			height:auto;
-			width: auto;
+  			width: 75%;
+  			-webkit-box-sizing: border-box;
+       		-moz-box-sizing: border-box;
+            box-sizing: border-box;
+
 			font-size: 15px;
 			font-family: 'Roboto', sans-serif;
 			color: black;
@@ -91,8 +95,15 @@
 			box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 		}
 		button {
+			display: block;
+  			width: 75%;
+    		border: none;
 			color: white;
 			background-color: #EE63DA;
+		  padding: 14px 28px;
+		  font-size: 16px;
+		  cursor: pointer;
+		  text-align: center;
 		}
 		button:hover {
 			color: #EE63DA;
@@ -102,6 +113,10 @@
 		  border-radius: 10px;
 		  border: 4px solid white;
 		  background-color: white;
+		  align: center;
+		    -webkit-box-sizing: border-box;
+       		-moz-box-sizing: border-box;
+            box-sizing: border-box;
 		  /* Add shadows to create the "card" effect */
 		  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 		  transition: 0.3s;
@@ -109,6 +124,8 @@
 		  font-family: 'Roboto', sans-serif;
 		  color: black;
 		  padding: 10px 16px;
+		  max-width: 75%;
+		  margin: auto;
 		}
 
 		/* On mouse-over, add a deeper shadow */
