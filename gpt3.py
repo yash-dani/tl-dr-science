@@ -7,17 +7,17 @@ Turn informat statements into requests to update balance sheets using GPT-3
 import ast # standard library
 import openai # 3rd party packages
 import json
-
+import os
 '''
 	Function to turn informal request into transactional statement 
 '''
 def getGPT3(request):
 
 	# setup key and fine tuning data
-	key = open("key.txt", "r")
+	key = os.environ.get('api_key')
 	fineTuneData = open("fineTuneData.txt", "r")
 	question = 'My second grader asked me what this passage means:\n\n"""' + request + ' \n"""\n\nI rephrased it for him, in plain language a second grader can understand:\n\n"""'
-	openai.api_key = key.read()
+	openai.api_key = key
 
 	# request completion from GPT-3
 	output = openai.Completion.create(
