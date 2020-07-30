@@ -2,10 +2,17 @@
 	<body>
 		<div class="content form-group container-sm">
 			<h1 class="logo">📠</h1>
-			<h1>tl;dr science</h1>
+			<h1>tl;dr papers</h1>
 			<p>science abstracts a second grader can understand</p>
 			{% if message %}
-        		<p>{{ message }}</p>
+				<div class="card">
+					{{ message }}
+				</div>
+				<br>
+				<form method="GET"> 
+		        <a href={{ url_for('generate') }}><button type="submit" class="btn btn-outline-primary">try again</button></a>
+				<br>
+				</form>
     		{% else %}
 			<form method="POST"> 
 		        <textarea rows="20" cols="100" name="abstract"
@@ -13,7 +20,8 @@
 		        <button type="submit" class="btn btn-outline-primary">submit</button>
 		    </form> 
 		    {% endif %}
-		    <p class="footer">Powered by GPT-3. Made by Yash & Cindy.</p><br>
+
+		    <p class="footer">Powered by GPT-3. Made with ❤️ by Yash & Cindy.</p><br>
 
 		</div>
 
@@ -39,7 +47,7 @@
 			margin-top: 1%;
 			margin-bottom: 1%;
 		}
-		div {
+		.content {
 			height:auto;
 			min-height:50%;
 			height:auto !important;        /* for IE as it does not support min-height */
@@ -81,9 +89,34 @@
 			color: black;
 
 		}
+		textarea:hover {
+			box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+		}
 		button {
 			color: white;
 			background-color: #EE63DA;
+		}
+		button:hover {
+			color: #EE63DA;
+			background-color: white;			
+		}
+		.card {
+		  border-radius: 10px;
+		  border: 4px solid white;
+		  background-color: white;
+		  /* Add shadows to create the "card" effect */
+		  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+		  transition: 0.3s;
+		  font-size: 15px;
+		  font-family: 'Roboto', sans-serif;
+		  color: black;
+		  padding: 10px 16px;
+		}
+
+		/* On mouse-over, add a deeper shadow */
+		.card:hover {
+		  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+		  border: 4px solid #EE63DA;
 		}
 		
 	</style>

@@ -16,17 +16,17 @@ def getGPT3(request):
 	# setup key and fine tuning data
 	key = open("key.txt", "r")
 	fineTuneData = open("fineTuneData.txt", "r")
-	question = "Q: " + request
+	question = "Q: A second grader asked me what this means: " + request
 	openai.api_key = key.read()
 
 	# request completion from GPT-3
 	output = openai.Completion.create(
 	  engine="davinci",
 	  prompt= fineTuneData.read() + question + "\n",
-	  max_tokens=220,
+	  max_tokens=50,
 	  temperature=0.4,
 	  stop=["Q: "]	
 	) 
 
 	#print(output["choices"][0]["text"])
-	return output["choices"][0]["text"]
+	return output["choices"][0]["text"].replace('A: Here this is, made for a 2nd grader:','')

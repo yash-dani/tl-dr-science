@@ -13,15 +13,18 @@ def make():
 
 
 
-@app.route('/test/', methods=['post', 'get'])
-def test():
+@app.route('/', methods=['post', 'get'])
+def generate():
     message = ''
     if request.method == 'POST':
-        message = gpt3.getGPT3(request.form['abstract'].replace("A:", "").replace("Here this is, made for a 2nd grader:",""))
-        print(message)
+           if message == '':
+               message = gpt3.getGPT3(request.form['abstract'].replace("A:", "").replace("Here this is, made for a 2nd grader:",""))
+           else:
+            message = ''
+        #print(message)
         
     return render_template('generate.html', message=message)
 
 if __name__ == "__main__":
-	port = int(os.environ.get("PORT", 5000))
-	app.run(host='0.0.0.0', port=port) 
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port) 
