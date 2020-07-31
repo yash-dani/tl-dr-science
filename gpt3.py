@@ -14,10 +14,9 @@ import os
 def getGPT3(request):
 
 	# setup key and fine tuning data
-	key = os.environ.get('api_key')
 	fineTuneData = open("fineTuneData.txt", "r")
 	question = 'My second grader asked me what this passage means:\n\n"""' + request + ' \n"""\n\nI rephrased it for him, in plain language a second grader can understand:\n\n"""'
-	openai.api_key = key
+	openai.api_key = os.environ.get('api_key')
 
 	# request completion from GPT-3
 	output = openai.Completion.create(
