@@ -35,7 +35,7 @@ def is_human(captcha_response):
         Returns True captcha test passed for the submitted form 
         else returns False.
     """
-    secret = ""
+    secret = ''
     payload = {'response':captcha_response, 'secret':secret}
     response = requests.post("https://www.google.com/recaptcha/api/siteverify", payload)
     response_text = json.loads(response.text)
