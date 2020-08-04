@@ -2,31 +2,43 @@
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
 		<title>📠 tl;dr papers</title>
+		<script src='https://www.google.com/recaptcha/api.js'></script>
+		<link
+		  rel="stylesheet" type="text/css"
+		  href="//cdn.jsdelivr.net/gh/loadingio/ldbutton@v1.0.1/dist/ldbtn.min.css"
+		/>
+		<script type="text/javascript">
+		  var onSubmit = function(response) {
+		    document.getElementById("generate").submit(); // send response to your backend service
+		  };
+		</script>
 	</head>
 	<body>
+
 		<div class="content form-group container-sm">
+
 			<h1 class="logo">📠</h1>
-			<h1>tl;dr papers</h1>
+			<h1>tl;dr papers</h1><br>
 			<p>science abstracts a second grader can understand</p>
 			{% if message %}
 				<div class="card">
 					{{ message }}
 				</div>
-				<br>
+				
 				<form method="GET"> 
 		        <a href={{ url_for('generate') }}><button type="submit" class="btn btn-outline-primary">try again</button></a>
-				<br>
+				
 				</form>
     		{% else %}
-			<form method="POST"> 
+			<form method="POST" id="generate"> 
 		        <textarea rows="1" cols="100" name="abstract"
-		        id="abstract" placeholder="Enter some Science 🧬"></textarea><br><br>
-		        <button type="submit" class="btn btn-outline-primary">submit</button>
+		        id="abstract" placeholder="Enter some Science 🧬"></textarea>
+		        
+		        <button type="submit" class="btn btn-outline-primary g-recaptcha" data-sitekey="{{ sitekey }}" data-callback="onSubmit">submit</button>
 		    </form> 
 		    {% endif %}
-
-		    <p class="footer">Disclaimer: results may not be perfect, use your own judgement. <br>Powered by GPT-3. Made with ❤️ by Yash & Cindy.</p><br>
-
+		    <br>
+		    <p class="footer">Powered by GPT-3. Results may not be perfect, use your own judgement. <br>Made with ❤️ by Yash & Cindy.</p>
 		</div>
 
 	</body>
@@ -47,11 +59,11 @@
 		h1 {
 			font-size: 75px;
 			text-align: center;
-			padding-top: 1%;
-			margin-top: 1%;
-			margin-bottom: 3%;
+			/*padding-top: 1%;
+			margin-bottom: 3%;*/
+			padding: 1%;
 		}
-		.content {
+		.content  {
 			min-height:75%;       /* for IE as it does not support min-height */
 			max-height:100%;
 			width: 100%;
@@ -61,12 +73,16 @@
 			transform: translate(-50%, -50%);
 			font-family: 'Montserrat', sans-serif;
 			font-weight: 800;
+			padding: 1%;
 
 		}
+
 		p {
-			margin-top: 3%;
+			/*margin-top: 3%;*/
 			text-align: center;
 			font-size: 20px;
+			/* margin-bottom: 3%;*/
+			padding: 1%;
 		}
 		.logo {
 			font-size: 100px;
@@ -81,6 +97,7 @@
 			font-size: 15px;
 			text-align: center;
 			font-family: 'Roboto', sans-serif;
+			padding: 1%;
 		}
 		textarea {
 			border-radius: 10px;
@@ -101,7 +118,8 @@
 		}
 		button {
 			display: block;
-  			width: 75%;
+  			width: 25%;
+  			height: auto;
     		border: none;
 			color: white;
 			background-color: #EE63DA;
@@ -109,10 +127,14 @@
 		  font-size: 16px;
 		  cursor: pointer;
 		  text-align: center;
+		  margin: 1%;
 		}
 		button:hover {
 			color: #EE63DA;
 			background-color: white;			
+		}
+		button:active {
+
 		}
 		.card {
 		  border-radius: 10px;
@@ -131,6 +153,9 @@
 		  padding: 10px 16px;
 		  max-width: 75%;
 		  margin: auto;
+		}
+		.grecaptcha-badge { 
+    		visibility: hidden;
 		}
 
 		/* On mouse-over, add a deeper shadow */
