@@ -12,6 +12,9 @@ body {
 h1 {
   font-size: 75px;
   text-align: center;
+  font-weight: 800;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   /*padding-top: 1%;
   margin-bottom: 3%;*/
 }
@@ -25,7 +28,9 @@ h1 {
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: 'Montserrat', sans-serif;
-  font-weight: 800;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 600;
   padding: 1%;
 }
 
@@ -43,6 +48,8 @@ p {
 .footer {
   font-size: 15px;
   font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 form {
@@ -51,6 +58,8 @@ form {
   font-size: 15px;
   text-align: center;
   font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   padding: 1%;
 }
 
@@ -66,6 +75,8 @@ textarea {
 
   font-size: 15px;
   font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   color: black;
 }
 
@@ -106,12 +117,16 @@ button:active {
         background-color: white;
   font-size: 15px;
   font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
   /* Add shadows to create the "card" effect */
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   font-size: 15px;
   font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   color: black;
   padding: 20px;
   max-width: 75%;
@@ -119,7 +134,7 @@ button:active {
 }
 
 .grecaptcha-badge {
-    visibility: hidden;
+  visibility: hidden;
 }
 
 /* On mouse-over, add a deeper shadow */

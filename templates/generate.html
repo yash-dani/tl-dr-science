@@ -16,34 +16,46 @@
 		<link rel="icon" type="image/png" sizes="32x32" href="static/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="static/favicon-16x16.png">
 		<link rel="manifest" href="static/site.webmanifest">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/styles.css">
 	</head>
 	<body>
 		<div class="content form-group container-sm">
 			<h1 class="logo">📠</h1>
-			<h1>tl;dr papers</h1><br>
+			<h1>tl;dr papers</h1>
+      <br>
 			<p>science abstracts a second grader can understand</p>
 			{% if message %}
 				<div class="card">
 					{{ message }}
 				</div>
-
 				<form method="GET">
-		        <a href={{ url_for('generate') }}><button type="submit" class="btn btn-outline-primary">try again</button></a>
-
+	        <a href={{ url_for('generate') }}>
+            <button type="submit" class="btn btn-outline-primary">
+              try again
+            </button>
+          </a>
 				</form>
     		{% else %}
 			<form method="POST" id="generate">
-		        <textarea rows="1" cols="100" name="abstract"
-		        id="abstract" placeholder="Enter some Science 🧬"></textarea>
 
-		        <button type="submit" class="btn btn-outline-primary g-recaptcha" data-sitekey="{{ sitekey }}" data-callback="onSubmit">submit</button>
-		    </form>
+        <textarea rows="1" cols="100" name="abstract"
+        id="abstract" placeholder="Enter some Science 🧬" />
+        </textarea>
+
+        <button type="submit" class="btn btn-outline-primary g-recaptcha" data-sitekey="{{ sitekey }}" data-callback="onSubmit">
+          submit
+        </button>
+
+		  </form>
 		    {% endif %}
 		    <br>
-		    <p class="footer">Powered by GPT-3. Results may not be perfect, use your own judgement. <br>Made with ❤️ by Yash & Cindy.</p>
+		    <p class="footer">
+          Powered by GPT-3. Results may not be perfect, use your own judgement.
+          <br>
+          Made with ❤️ by Yash & Cindy.
+        </p>
 		</div>
 	</body>
 </html>

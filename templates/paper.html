@@ -1,28 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <title>Login</title>
-</head>
-<body>
-
+  </head>
+  <body>
     {% if message %}
         <p>{{ message }}</p>
     {% endif %}
 
     <form action="" method="post">
-        <p>
-            <label for="username">Username</label>
-            <input type="text" name="username">
-        </p>
-        <p>
-            <label for="password">Password</label>
-            <input type="password" name="password">
-        </p>
-        <p>
-            <input type="submit">
-        </p>
+      <p>
+        <label for="username">Username</label>
+        <input type="text" name="username">
+      </p>
+      <p>
+        <label for="password">Password</label>
+        <input type="password" name="password">
+      </p>
+      <p>
+        <input type="submit">
+      </p>
     </form>
-
-</body>
+  </body>
 </html>
