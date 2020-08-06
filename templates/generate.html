@@ -16,11 +16,12 @@
 		<link rel="icon" type="image/png" sizes="32x32" href="static/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="static/favicon-16x16.png">
 		<link rel="manifest" href="static/site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
 	</head>
 	<body>
-
 		<div class="content form-group container-sm">
-
 			<h1 class="logo">📠</h1>
 			<h1>tl;dr papers</h1><br>
 			<p>science abstracts a second grader can understand</p>
@@ -28,148 +29,21 @@
 				<div class="card">
 					{{ message }}
 				</div>
-				
-				<form method="GET"> 
+
+				<form method="GET">
 		        <a href={{ url_for('generate') }}><button type="submit" class="btn btn-outline-primary">try again</button></a>
-				
+
 				</form>
     		{% else %}
-			<form method="POST" id="generate"> 
+			<form method="POST" id="generate">
 		        <textarea rows="1" cols="100" name="abstract"
 		        id="abstract" placeholder="Enter some Science 🧬"></textarea>
-		        
+
 		        <button type="submit" class="btn btn-outline-primary g-recaptcha" data-sitekey="{{ sitekey }}" data-callback="onSubmit">submit</button>
-		    </form> 
+		    </form>
 		    {% endif %}
 		    <br>
 		    <p class="footer">Powered by GPT-3. Results may not be perfect, use your own judgement. <br>Made with ❤️ by Yash & Cindy.</p>
 		</div>
-
 	</body>
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Roboto&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
-	<style>
-		body {
-			/* background-image: url('gpt3emailbkgnd.png'); */
-			background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);
-			color: white;
-			height: auto;
-			background-attachment: fixed;
-			background-position: center;
-			background-repeat: no-repeat;
-			background-size: cover;
-		}
-		h1 {
-			font-size: 75px;
-			text-align: center;
-			/*padding-top: 1%;
-			margin-bottom: 3%;*/
-		}
-		.content  {
-			min-height:75%;       /* for IE as it does not support min-height */
-			max-height:100%;
-			width: 100%;
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			font-family: 'Montserrat', sans-serif;
-			font-weight: 800;
-			padding: 1%;
-
-		}
-
-		p {
-			/*margin-top: 3%;*/
-			text-align: center;
-			font-size: 20px;
-			/* margin-bottom: 3%;*/
-		}
-		.logo {
-			font-size: 100px;
-		}
-		.footer {
-			font-size: 15px;
-			font-family: 'Roboto', sans-serif;
-		}
-		form {
-			height: auto;
-			width: auto;
-			font-size: 15px;
-			text-align: center;
-			font-family: 'Roboto', sans-serif;
-			padding: 1%;
-		}
-		textarea {
-			border-radius: 10px;
-  			border: 4px solid #EE63DA;
-  			padding: 20px;
-  			margin: 1%;
-  			width: 75%;
-  			-webkit-box-sizing: border-box;
-       		-moz-box-sizing: border-box;
-            box-sizing: border-box;
-
-			font-size: 15px;
-			font-family: 'Roboto', sans-serif;
-			color: black;
-
-		}
-		textarea:hover {
-			box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-		}
-		button {
-			display: block;
-  			width: 25%;
-  			height: auto;
-    		border: none;
-			color: white;
-			background-color: #EE63DA;
-		  padding: 14px 28px;
-		  font-size: 16px;
-		  cursor: pointer;
-		  text-align: center;
-		  margin: 1%;
-		}
-		button:hover {
-			color: #EE63DA;
-			background-color: white;			
-		}
-		button:active {
-
-		}
-		.card {
-			border-radius: 10px;
-  			border: 4px solid #ffffff;
-  			padding: 20px;
-  			width: 75%;
-  			-webkit-box-sizing: border-box;
-       		-moz-box-sizing: border-box;
-            box-sizing: border-box;
-            background-color: white;
-			font-size: 15px;
-			font-family: 'Roboto', sans-serif;
-			
-		  /* Add shadows to create the "card" effect */
-		  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-		  transition: 0.3s;
-		  font-size: 15px;
-		  font-family: 'Roboto', sans-serif;
-		  color: black;
-		  padding: 20px;
-		  max-width: 75%;
-		  margin: auto;
-		}
-		.grecaptcha-badge { 
-    		visibility: hidden;
-		}
-
-		/* On mouse-over, add a deeper shadow */
-		.card:hover {
-		  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-		  border: 4px solid #EE63DA;
-		}
-		
-	</style>
 </html>
