@@ -22,7 +22,11 @@ def generate():
            if message == '':
               captcha_response = request.form['g-recaptcha-response']
               if is_human(captcha_response):
-                message = gpt3.getGPT3(request.form['abstract'].replace("A:", "").replace("Here this is, made for a 2nd grader:",""))
+                if request.form['abstract'] == '':
+                    print('true')
+                    message = 'Your abstract was empty. Please try again. I do not understand.'
+                else:
+                    message = gpt3.getGPT3(request.form['abstract'].replace("A:", "").replace("Here this is, made for a 2nd grader:",""))
            else:
             message = ''
         #print(message)

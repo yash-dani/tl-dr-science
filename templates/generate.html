@@ -37,17 +37,21 @@
     		{% else %}
 			<form method="POST" id="generate"> 
 		        <textarea rows="1" cols="100" name="abstract"
-		        id="abstract" placeholder="Enter some Science 🧬"></textarea>
+		        id="abstract" maxlength="1000"placeholder="Enter some Science 🧬"></textarea>
 		        
 		        <button type="submit" class="btn btn-outline-primary g-recaptcha ld-ext-left" data-sitekey="{{ sitekey }}" data-callback="onSubmit">submit</button>
 		    </form> 
 		    {% endif %}
 		    <br>
-		    <p class="footer">Powered by GPT-3. Results may not be perfect. <br><br>Made with &#10084;&#65039; by Yash & Cindy. Twitter. Source.<br><br></p><p class="disclaimers">This site is protected by reCAPTCHA and the Google
+		    <p class="footer">Powered by GPT-3. Results may not be perfect. <br><br>Made with &#10084;&#65039; by Yash & Cindy.<br><br></p><p class="disclaimers">This site is protected by reCAPTCHA and the Google
 		    	<a href="https://policies.google.com/privacy">Privacy Policy</a> and
-    			<a href="https://policies.google.com/terms">Terms of Service</a> apply.</p>
+    			<a href="https://policies.google.com/terms">Terms of Service</a> apply. Max 50 summaries a day, contact us for more.</p>
 
 		</div>
+		<div class="loader content">
+	        <p>Rewording Science 🧪</p>
+	        <iframe src="https://giphy.com/embed/ZcWr9HfbSQP0T5zH7i" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+    	</div>
 
 	</body>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Roboto&display=swap" rel="stylesheet">
@@ -63,6 +67,8 @@
 			background-position: center;
 			background-repeat: no-repeat;
 			background-size: cover;
+			max-width: 100%;
+    		overflow-x: hidden;
 		}
 		h1 {
 			font-size: 75px;
@@ -203,6 +209,5 @@
 		a:active {
 		  color: white;
 		}
-		
 	</style>
 </html>
