@@ -8,18 +8,24 @@
 		  href="//cdn.jsdelivr.net/gh/loadingio/ldbutton@v1.0.1/dist/ldbtn.min.css"
 		/>
 		<script type="text/javascript">
-		  var onSubmit = function(response) {
-		    document.getElementById("generate").submit(); // send response to your backend service
-		  };
+			var onSubmit = function(response) {
+				document.getElementById("generate").submit();
+			};
 		</script>
 		<link rel="apple-touch-icon" sizes="180x180" href="static/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="static/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="static/favicon-16x16.png">
 		<link rel="manifest" href="static/site.webmanifest">
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Roboto&display=swap" rel="stylesheet">
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
 	</head>
 	<body>
-
+		<div id="spinner" style="display:visible;">
+			<img source="static/loading.gif"></img>
+			<p>Sciencing 🧪</p>
+		</div>
 		<div class="content form-group container-sm">
 
 			<h1 class="logo">📠</h1>
@@ -39,18 +45,16 @@
 		        <textarea rows="1" cols="100" name="abstract"
 		        id="abstract" maxlength="1000"placeholder="Enter some Science 🧬"></textarea>
 		        
-		        <button type="submit" class="btn btn-outline-primary g-recaptcha ld-ext-left" data-sitekey="{{ sitekey }}" data-callback="onSubmit">submit</button>
+		        <button type="submit" id="submitting" class="button btn btn-outline-primary g-recaptcha ld-ext-left" data-sitekey="{{ sitekey }}" data-callback="onSubmit">submit</button>
 		    </form> 
 		    {% endif %}
 		    <br>
-		    <p class="footer">Powered by GPT-3. Results may not be perfect. <br><br>Made with &#10084;&#65039; by Yash & Cindy.<br><br></p><p class="disclaimers">This site is protected by reCAPTCHA and the Google
+		    <p class="footer">Powered by GPT-3. Results may not be perfect. <br><br>Made with &#10084;&#65039; by <a href="https://twitter.com/itsyashdani">Yash</a> & <a href="https://twitter.com/cindywu">Cindy.</a><br><br></p><p class="disclaimers">This site is protected by reCAPTCHA and the Google
 		    	<a href="https://policies.google.com/privacy">Privacy Policy</a> and
     			<a href="https://policies.google.com/terms">Terms of Service</a> apply. Max 50 summaries a day, contact us for more.</p>
-
 		</div>
 	</body>
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Roboto&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
 
 	<style>
 		body {
@@ -138,10 +142,13 @@
 		  margin: 20px;
 		}
 		button:hover {
-			color: #EBD4CB;		
+			color: #EBD4CB;	
 		}
 		button:active {
-			background-color: white;
+			background-color: #EBD4CB;
+		}
+		button:focus {
+			background-color: #EBD4CB;
 		}
 		.card {
 			font-size: 15px;
@@ -190,7 +197,7 @@
 
 		/* visited link */
 		a:visited {
-		  color: #EBD4CB;
+		  color: white;
 		  font-family: 'Roboto', sans-serif;
 		  font-size: 15px;
 		}
@@ -203,6 +210,15 @@
 		/* selected link */
 		a:active {
 		  color: white;
+		}
+		a {
+			color: white;
+		}
+
+		#spinner {
+			position: fixed;
+			top: 50%;
+			left: 50%;
 		}
 	</style>
 </html>
