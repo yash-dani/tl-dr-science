@@ -16,27 +16,27 @@
 		<link rel="icon" type="image/png" sizes="32x32" href="static/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="static/favicon-16x16.png">
 		<link rel="manifest" href="static/site.webmanifest">
-		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Roboto&display=swap" rel="stylesheet">
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 		<meta name="twitter:site" content="@tldrpapers" />
 		<meta name="twitter:title" content="tl;dr papers" />
 		<meta name="twitter:description" content="science abstracts written for second graders" />
 		<meta name="twitter:image" content="https://farm6.staticflickr.com/5510/14338202952_93595258ff_z.jpg"
-
+	    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Roboto&display=swap" rel="stylesheet">
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	    <link rel="stylesheet" href="../css/styles.css">
 	</head>
 	<body>
 		<div class="content form-group container-sm">
-
 			<h1 class="logo">📠</h1>
-			<h1>tl;dr papers</h1><br>
-			<p>science abstracts rewritten for second grader</p>
+			<h1>tl;dr papers</h1>
+      		<br>
+			<p>science abstracts a second grader can understand</p>
 			{% if message %}
-				
 			<form method="GET"> 
 				<div class="card">
 					{{ message }}
 				</div>
+
 		        <a href={{ url_for('generate') }}><button type="submit" class="btn btn-outline-primary">try again</button></a>
 				
 			</form>
@@ -53,13 +53,8 @@
 		    	<a href="https://policies.google.com/privacy">Privacy Policy</a> and
     			<a href="https://policies.google.com/terms">Terms of Service</a> apply. Max 50 summaries a day, contact us for more.</p>
 		</div>
- />
 	</body>
-
-
-	<style>
-		body {
-			/* background-image: url('gpt3emailbkgnd.png'); */
+</html>
 			background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);
 			color: white;
 			height: auto;
