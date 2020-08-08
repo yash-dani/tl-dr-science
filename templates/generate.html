@@ -12,6 +12,9 @@
 				document.getElementById("generate").submit();
 			};
 		</script>
+		<script>
+		</script>
+		 <script type="text/javascript" src="{{ url_for('static', filename='process.js') }}"></script>
 		<link rel="apple-touch-icon" sizes="180x180" href="static/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="static/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="static/favicon-16x16.png">
@@ -43,9 +46,9 @@
 			</form>
     		{% else %}
 			<form method="POST" id="generate"> 
-		        <textarea rows="1" cols="100" name="abstract"
-		        id="abstract" maxlength="1000"placeholder="Enter some Science 🧬"></textarea>
-		        
+		        <textarea id="textarea" rows="1" cols="100" name="abstract"
+		        id="abstract" maxlength="1000" onkeyup="count_up(this);" placeholder="Enter some Science 🧬"></textarea><br>
+		        <span class="text-muted pull-right footer" id="count1">0/2000</span>
 		        <button type="submit" id="submitting" class="button btn btn-outline-primary g-recaptcha ld-ext-left" data-sitekey="{{ sitekey }}" data-callback="onSubmit">submit</button>
 		    </form> 
 		    {% endif %}
