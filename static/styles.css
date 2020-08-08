@@ -1,3 +1,4 @@
+
 body {
   /* background-image: url('gpt3emailbkgnd.png'); */
   background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);
@@ -7,14 +8,14 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  max-width: 100%;
+  overflow-x: hidden;
 }
+
 
 h1 {
   font-size: 75px;
   text-align: center;
-  font-weight: 800;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   /*padding-top: 1%;
   margin-bottom: 3%;*/
 }
@@ -28,10 +29,9 @@ h1 {
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: 'Montserrat', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: 600;
+  font-weight: 800;
   padding: 1%;
+
 }
 
 p {
@@ -40,34 +40,26 @@ p {
   font-size: 20px;
   /* margin-bottom: 3%;*/
 }
-
 .logo {
   font-size: 100px;
 }
-
 .footer {
   font-size: 15px;
   font-family: 'Roboto', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
-
 form {
   height: auto;
   width: auto;
   font-size: 15px;
   text-align: center;
   font-family: 'Roboto', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   padding: 1%;
 }
-
 textarea {
   border-radius: 10px;
     border: 4px solid #EE63DA;
     padding: 20px;
-    margin: 1%;
+    margin: 5px;
     width: 75%;
     -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
@@ -75,66 +67,38 @@ textarea {
 
   font-size: 15px;
   font-family: 'Roboto', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   color: black;
-}
 
+}
 textarea:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-button {
-  display: block;
-    width: 25%;
-    height: auto;
-    border: none;
-  color: white;
-  background-color: #EE63DA;
-  padding: 14px 28px;
-  font-size: 16px;
-  cursor: pointer;
-  text-align: center;
-  margin: 1%;
-}
-
-button:hover {
-  color: #EE63DA;
-  background-color: white;
-}
-
-button:active {
-}
-
 .card {
-  border-radius: 10px;
-    border: 4px solid #ffffff;
-    padding: 20px;
-    width: 75%;
-    -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        background-color: white;
   font-size: 15px;
   font-family: 'Roboto', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
+  color: black;
+  border-radius: 10px;
+  border: 4px solid #ffffff;
+  padding: 20px;
+  width: 75%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: white;
+  
   /* Add shadows to create the "card" effect */
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   font-size: 15px;
   font-family: 'Roboto', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   color: black;
   padding: 20px;
   max-width: 75%;
-  margin: auto;
+  margin: 5px auto;
 }
-
-.grecaptcha-badge {
-  visibility: hidden;
+.grecaptcha-badge { 
+    visibility: hidden;
 }
 
 /* On mouse-over, add a deeper shadow */
