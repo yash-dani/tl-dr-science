@@ -9,12 +9,11 @@ from flask_limiter.util import get_remote_address
 
 limiter = Limiter(
     app,
-    key_func=get_remote_address,
-    default_limits=["20 per day"]
+    key_func=get_remote_address
 )
 
 @app.route('/', methods=['post', 'get'])
-@limiter.limit("50 per day")
+@limiter.exempt
 def generate():
     sitekey = "6LcaSboZAAAAACK98x__otD9iW_7KXhSdAXYmT_H"
     message = ''
@@ -44,6 +43,7 @@ def is_human(captcha_response):
     response_text = json.loads(response.text)
     return response_text['success']
 
+
 if __name__ == "__main__":
     from waitress import serve
-    serve(app,host='0.0.0.0', port=8080) 
+    serve(app,host='0.0.0.0', port=8080)

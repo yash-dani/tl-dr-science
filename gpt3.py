@@ -27,7 +27,7 @@ def getGPT3(request):
 	  frequency_penalty=0.2,
 	  top_p=1,
 	  presence_penalty=0,
-	  stop=['"""']	
+	  stop=['"""']
 	) 
 
 	#print(output["choices"][0]["text"])
