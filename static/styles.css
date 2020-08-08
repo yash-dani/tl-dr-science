@@ -57,14 +57,13 @@ form {
 }
 textarea {
   border-radius: 10px;
-    border: 4px solid #EE63DA;
-    padding: 20px;
-    margin: 5px;
-    width: 75%;
-    -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-        box-sizing: border-box;
-
+  border: 4px solid #EE63DA;
+  padding: 20px;
+  margin: 5px;
+  width: 75%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   font-size: 15px;
   font-family: 'Roboto', sans-serif;
   color: black;

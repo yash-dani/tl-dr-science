@@ -47,8 +47,9 @@
     		{% else %}
 			<form method="POST" id="generate"> 
 		        <textarea id="textarea" rows="1" cols="100" name="abstract"
-		        id="abstract" maxlength="1000" onkeyup="count_up(this);" placeholder="Enter some Science 🧬"></textarea><br>
-		        <span class="text-muted pull-right footer" id="count1">0/2000</span>
+		        id="abstract" maxlength="2000" onkeyup="count_up(this);" placeholder="Enter some Science 🧬"></textarea>
+		        <span class="footer" style="float:left; margin: 5px; font-size:10px;" id="count1">0/2000</span><br><br>
+
 		        <button type="submit" id="submitting" class="button btn btn-outline-primary g-recaptcha ld-ext-left" data-sitekey="{{ sitekey }}" data-callback="onSubmit">submit</button>
 		    </form> 
 		    {% endif %}
@@ -91,16 +92,16 @@
 		}
 		button {
 		  display: block;
-		    width: 25%;
-		    height: auto;
-		    border: none;
+		  width: 25%;
+		  height: auto;
+		  border: none;
 		  color: white;
 		  background-color: #EE63DA;
 		  padding: 14px 28px;
 		  font-size: 16px;
 		  cursor: pointer;
 		  text-align: center;
-		  margin: 20px;
+		  margin: 5px;
 		}
 		button:hover {
 		  color: #EBD4CB; 
@@ -126,10 +127,11 @@
 		    padding: 20px;
 		    margin: 5px;
 		    width: 75%;
+		    min-width: 100%;
 		    -webkit-box-sizing: border-box;
 		    -moz-box-sizing: border-box;
 		    box-sizing: border-box;
-
+		    width: 100%;
 		    font-size: 15px;
 		    font-family: 'Roboto', sans-serif;
 		    color: black;
@@ -137,6 +139,18 @@
 		}
 		textarea:hover {
 		  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+		}
+		body {
+		  /* background-image: url('gpt3emailbkgnd.png'); */
+		  background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);
+		  color: white;
+		  height: auto;
+		  background-attachment: fixed;
+		  background-position: center;
+		  background-repeat: no-repeat;
+		  background-size: cover;
+		  max-width: 100%;
+		  overflow-x: hidden;
 		}
 	</style>
 </html>
