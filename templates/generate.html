@@ -9,6 +9,8 @@
 		/>
 		<script type="text/javascript">
 			var onSubmit = function(response) {
+				$("#loading").show();
+            	$("#content").hide(); 
 				document.getElementById("generate").submit();
 			};
 		</script>
@@ -30,7 +32,8 @@
 
 	</head>
 	<body>
-		<div class="content form-group container-sm">
+		<div id="loading" style="display: none;">loading</div>
+		<div id="content" class="content form-group container-sm">
 			<h1 class="logo">📠</h1>
 			<h1>tl;dr papers</h1>
       		<br>
