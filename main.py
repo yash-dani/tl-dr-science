@@ -26,6 +26,8 @@ def generate():
                     message = 'Your abstract was empty. Please try again. I do not understand.'
                 else:
                     message = gpt3.getGPT3(request.form['abstract'].replace("A:", "").replace("Here this is, made for a 2nd grader:",""))
+              else:
+                message="You messed up the captcha. If you're a bot, you should probably give up."
            else:
             message = ''
         #print(message)
@@ -45,5 +47,4 @@ def is_human(captcha_response):
 
 
 if __name__ == "__main__":
-    from waitress import serve
-    serve(app,host='0.0.0.0', port=8080)
+    app.run(host='0.0.0.0', port=8080)

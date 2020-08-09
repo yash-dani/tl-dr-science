@@ -9,9 +9,9 @@
 		/>
 		<script type="text/javascript">
 			var onSubmit = function(response) {
+				document.getElementById("generate").submit();
 				$("#loading").show();
             	$("#content").hide(); 
-				document.getElementById("generate").submit();
 			};
 		</script>
 		<script>
@@ -32,7 +32,7 @@
 
 	</head>
 	<body>
-		<div id="loading" style="display: none; font-size: 15px; margin: auto;">making some science 👀</div>
+		<div id="loading" style="display: none; font-size: 20px; position: absolute; top: 50%;left: 50%; transform: translate(-50%, -50%);">making some science 👀<br>(this loading page is WIP)</div>
 		<div id="content" class="content form-group container-sm">
 			<h1 class="logo">📠</h1>
 			<h1>tl;dr papers</h1>
