@@ -37,6 +37,7 @@ def is_human(captcha_response):
     response_text = json.loads(response.text)
     return response_text['success']
 
-
+'''
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8080)
+'''
