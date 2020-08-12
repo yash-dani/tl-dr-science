@@ -4,8 +4,16 @@ app = Flask(__name__)
 import gpt3
 import requests
 import json
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
+limiter = Limiter(
+    app,
+    key_func=get_remote_address,
+    default_limits=["2 per minute", "1 per second"],
+)
 
 @app.route('/', methods=['post', 'get'])
+@limiter.limit("5 per day")
 def generate():
     sitekey = "6LcaSboZAAAAACK98x__otD9iW_7KXhSdAXYmT_H"
     message = ''
