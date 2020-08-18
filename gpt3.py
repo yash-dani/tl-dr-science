@@ -22,12 +22,13 @@ def getGPT3(request):
 	output = openai.Completion.create(
 	  engine="davinci",
 	  prompt= question + "\n",
-	  max_tokens=100,
-	  temperature=0.5,
+	  max_tokens=150,
+	  temperature=0.6,
 	  frequency_penalty=0.2,
 	  top_p=1,
 	  presence_penalty=0,
-	  stop=['"""']
+	  stop=['"""'],
+	  n = 8
 	) 
 
 	#print(output["choices"][0]["text"])
