@@ -47,8 +47,9 @@
 			{% if message %}
 			<form method="GET"> 
 				<div class="card">
-					{{ message }}
+					{{ message[0] }}
 				</div>
+				
 
 		        <a href={{ url_for('generate') }}><button type="submit" class="btn btn-outline-primary">try again</button></a>
 				
