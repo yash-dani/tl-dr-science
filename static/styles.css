@@ -3,7 +3,6 @@
 }
 
 body {
-  /* background-image: url('gpt3emailbkgnd.png'); */
   background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);
   color: white;
   height: auto;
@@ -13,9 +12,13 @@ body {
   background-size: cover;
   max-width: 100%;
   overflow-x: hidden;
-  font-family: Roboto;
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+p {
+  text-align: center;
 }
 
 /* TODO: uncomment */
@@ -36,7 +39,7 @@ body {
 
 .loading-text {
   display: inline-block;
-  margin: 1em 0;
+  margin: 1rem 0;
 }
 
 .loading-text p {
@@ -48,8 +51,8 @@ body {
   border: 1px solid hsl(0, 0%, 70%);
   outline: none;
   cursor: pointer;
-  padding: 1em 2em;
-  border-radius: .3em;
+  padding: 1rem 2rem;
+  border-radius: .3rem;
 }
 
 .btn.btn-primary {
@@ -63,12 +66,31 @@ body {
   box-shadow: 0 0 5px 0 hsl(309, 80%, 30%);
 }
 
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+  font-size: 1rem;
+}
+
+.footer-text {
+  display: inline-block;
+  margin: 1rem 0;
+  font-size: .8rem;
+}
+
+.disclaimer {
+  font-size: .5rem;
+  color: #CCC;
+}
+
 
 h1 {
   font-size: 75px;
   text-align: center;
-  /*padding-top: 1%;
-  margin-bottom: 3%;*/
 }
 
 .content  {
@@ -85,19 +107,11 @@ h1 {
 
 }
 
-p {
-  /*margin-top: 3%;*/
-  text-align: center;
-  font-size: 20px;
-  /* margin-bottom: 3%;*/
-}
+
 .logo {
   font-size: 100px;
 }
-.footer {
-  font-size: 15px;
-  font-family: 'Roboto', sans-serif;
-}
+
 form {
   height: auto;
   width: auto;
