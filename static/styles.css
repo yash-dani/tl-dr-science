@@ -99,6 +99,26 @@ p {
   font-size: .8rem;
 }
 
+.card {
+  width: 75%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  max-width: 75%;
+  padding: 1rem;
+  border: 4px solid #ffffff;
+  border-radius: .3rem;
+  text-align: left;
+  margin: auto;
+  margin-bottom: 2rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+/*  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  border: 4px solid #EE63DA;*/
+}
 
 h1 {
   font-size: 75px;
@@ -116,7 +136,6 @@ h1 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   padding: 1%;
-
 }
 
 
@@ -150,35 +169,7 @@ textarea:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-.card {
-  font-size: 15px;
-  font-family: 'Roboto', sans-serif;
-  color: black;
-  border-radius: 10px;
-  border: 4px solid #ffffff;
-  padding: 20px;
-  width: 75%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  background-color: white;
-
-  /* Add shadows to create the "card" effect */
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  font-size: 15px;
-  font-family: 'Roboto', sans-serif;
-  color: black;
-  padding: 20px;
-  max-width: 75%;
-  margin: 5px auto;
-}
 .grecaptcha-badge {
     visibility: hidden;
 }
 
-/* On mouse-over, add a deeper shadow */
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  border: 4px solid #EE63DA;
-}
