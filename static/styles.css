@@ -89,6 +89,13 @@ p {
 .disclaimer {
   font-size: .5rem;
   color: #CCC;
+  padding: 0 3rem;
+  max-width: 480px;
+}
+
+.form-container {
+  margin: auto;
+  max-width: 600px;
 }
 
 .char-counter {
@@ -97,6 +104,7 @@ p {
   text-align: right;
   color: #CCC;
   font-size: .8rem;
+  max-width: 600px;
 }
 
 .card {
@@ -112,20 +120,32 @@ p {
   margin: auto;
   margin-bottom: 2rem;
   font-family: 'Roboto', sans-serif;
+  color: black;
+  background-color: white;
+  font-weight: 100;
 }
 
+/* TODO: add ability to click to copy */
 /* On mouse-over, add a deeper shadow */
-.card:hover {
-/*  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  border: 4px solid #EE63DA;*/
+.card:hover .card:focus {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  cursor: copy;
+  /*border: 4px solid #EE63DA;*/
 }
 
-h1 {
+.icon {
+  font-size: 100px;
+  text-align: center;
+  margin: 0;
+}
+
+.title {
   font-size: 75px;
   text-align: center;
+  margin: 0;
 }
 
-.content  {
+.content {
   min-height:75%;       /* for IE as it does not support min-height */
   max-height:100%;
   width: 100%;
@@ -138,33 +158,29 @@ h1 {
   padding: 1%;
 }
 
-
-.logo {
-  font-size: 100px;
-}
-
 form {
   height: auto;
   width: auto;
-  font-size: 15px;
+  font-size: 1rem;
   text-align: center;
   font-family: 'Roboto', sans-serif;
   padding: 1%;
 }
+
 textarea {
-  border-radius: 10px;
+  border-radius: .5rem;
   border: 4px solid #EE63DA;
-  padding: 20px;
-  margin: 5px;
+  padding: 1rem;
   width: 75%;
+  min-width: 75%;
+  max-width: 650px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  font-size: 15px;
   font-family: 'Roboto', sans-serif;
   color: black;
-
+  font-size: 1rem;
 }
+
 textarea:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
