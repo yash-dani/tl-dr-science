@@ -44,8 +44,7 @@
 
   </head>
   <body>
-    <!-- TODO: add class="loading" remove style= -->
-    <div id="loading" style="display: none; font-size: 20px; position: absolute; top: 50%;left: 50%; transform: translate(-50%, -50%);">
+    <div id="loading" class="loading">
       <iframe
         src="https://giphy.com/embed/f9NaK0iIjpY5Vm80a0?video=0" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
        <div class="loading-text-container">
@@ -66,7 +65,6 @@
         <form method="GET">
           <!-- TODO: add a label such as "Here is your summary:" -->
           <!-- TODO: click summary to copy text -->
-          <!-- TODO: restyle card -->
           <div class="card">
             {{ message[0] }}
           </div>
