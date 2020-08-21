@@ -11,7 +11,7 @@
 			var onSubmit = function(response) {
 				document.getElementById("generate").submit();
 				$("#loading").show();
-            	$("#content").hide(); 
+            	$("#content").hide();
 			};
 		</script>
 		<script>
@@ -25,7 +25,7 @@
 		<meta name="twitter:card" content="summary">
 		<meta name="twitter:site" content="@tldrpapers" />
 		<meta name="twitter:title" content="tl;dr papers" />
-		<meta name="twitter:image" content="https://farm6.staticflickr.com/5510/14338202952_93595258ff_z.jpg"/>
+		<meta name="twitter:image" content="https://i.imgur.com/o3S9ZOQ.png"/>
 		<meta name="twitter:text:title" content="tl;dr papers" />
 		<meta name="twitter:description" content="science abstracts for second graders. written by AI." />
 
@@ -45,23 +45,23 @@
       		<br>
 			<p>science abstracts a second grader can understand</p>
 			{% if message %}
-			<form method="GET"> 
+			<form method="GET">
 				<div class="card">
 					{{ message[0] }}
 				</div>
-				
+
 
 		        <a href={{ url_for('generate') }}><button type="submit" class="btn btn-outline-primary">try again</button></a>
-				
+
 			</form>
     		{% else %}
-			<form method="POST" id="generate"> 
+			<form method="POST" id="generate">
 		        <textarea id="textarea" rows="1" cols="100" name="abstract"
 		        id="abstract" maxlength="2000" onkeyup="count_up(this);" placeholder="Enter some Science 🧬"></textarea>
 		        <span class="footer" style="float:left; margin: 5px; font-size:10px;" id="count1">0/2000</span><br><br>
 
 		        <button type="submit" id="submitting" class="button btn btn-outline-primary g-recaptcha ld-ext-left" data-sitekey="{{ sitekey }}" data-callback="onSubmit">submit</button>
-		    </form> 
+		    </form>
 		    {% endif %}
 		    <br>
 		    <p class="footer">Powered by GPT-3. Results may not be perfect. <br><br>Made with &#10084;&#65039; by <a href="https://twitter.com/itsyashdani">Yash</a> & <a href="https://twitter.com/cindywu">Cindy.</a><br><br></p><p class="disclaimers">This site is protected by reCAPTCHA and the Google
@@ -114,7 +114,7 @@
 		  margin: 5px;
 		}
 		button:hover {
-		  color: #EBD4CB; 
+		  color: #EBD4CB;
 		}
 		button:active {
 		  background-color: #EBD4CB;
