@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 
 body {
   /* background-image: url('gpt3emailbkgnd.png'); */
@@ -10,6 +13,54 @@ body {
   background-size: cover;
   max-width: 100%;
   overflow-x: hidden;
+  font-family: Roboto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* TODO: uncomment */
+/*.loading {
+  display: none;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}*/
+
+.loading-text-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-text {
+  display: inline-block;
+  margin: 1em 0;
+}
+
+.loading-text p {
+  margin: 0;
+}
+
+.btn {
+  background-color: hsl(0, 0%, 90%);
+  border: 1px solid hsl(0, 0%, 70%);
+  outline: none;
+  cursor: pointer;
+  padding: 1em 2em;
+  border-radius: .3em;
+}
+
+.btn.btn-primary {
+  background-color: hsl(309, 80%, 66%);
+  border: none;
+  color: white;
+}
+
+.btn.btn-primary:hover, .btn.btn-primary:focus {
+  background-color: hsl(309, 80%, 50%);
+  box-shadow: 0 0 5px 0 hsl(309, 80%, 30%);
 }
 
 
@@ -85,7 +136,7 @@ textarea:hover {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   background-color: white;
-  
+
   /* Add shadows to create the "card" effect */
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
@@ -96,7 +147,7 @@ textarea:hover {
   max-width: 75%;
   margin: 5px auto;
 }
-.grecaptcha-badge { 
+.grecaptcha-badge {
     visibility: hidden;
 }
 

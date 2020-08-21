@@ -44,18 +44,16 @@
 
   </head>
   <body>
+    <!-- TODO: add class="loading" remove style= -->
     <div id="loading" style="display: none; font-size: 20px; position: absolute; top: 50%;left: 50%; transform: translate(-50%, -50%);">
       <iframe
         src="https://giphy.com/embed/f9NaK0iIjpY5Vm80a0?video=0" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-      <br>
-      <br>
-      <p>
-        making some science 👀
-        <br>
-        (this loading page is WIP)
-      </p>
-      <br>
-      <br>
+       <div class="loading-text-container">
+        <div class="loading-text">
+          <p>making some science 👀</p>
+          <p>(this loading page is WIP)</p>
+        </div>
+      </div>
     </div>
     <div id="content" class="content form-group container-sm">
       <h1 class="logo">📠</h1>
@@ -66,7 +64,7 @@
       <form method="GET">
         <div class="card">{{ message[0] }}</div>
         <a href={{ url_for('generate') }}>
-          <button type="submit" class="btn btn-outline-primary">
+          <button type="submit" class="btn btn-primary">
             try again
           </button>
         </a>
@@ -94,7 +92,7 @@
         <button
           type="submit"
           id="submitting"
-          class="button btn btn-outline-primary g-recaptcha ld-ext-left"
+          class="button btn btn-primary g-recaptcha ld-ext-left"
           data-sitekey="{{ sitekey }}"
           data-callback="onSubmit">
           submit
@@ -109,10 +107,10 @@
         Made with &#10084;&#65039; by <a href="https://twitter.com/itsyashdani">Yash</a> & <a href="https://twitter.com/cindywu">Cindy</a>.
         <br>
         <br>
-      </p>
-      <p class="disclaimers">
         This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply. Max 50 summaries a day, contact us for more.
       </p>
+
+
     </div>
   </body>
 </html>
