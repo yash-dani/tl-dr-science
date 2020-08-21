@@ -82,9 +82,21 @@ p {
   font-size: .8rem;
 }
 
+.footer-text a {
+  color: white;
+}
+
 .disclaimer {
   font-size: .5rem;
   color: #CCC;
+}
+
+.char-counter {
+  display: inline-block;
+  width: 75%;
+  text-align: right;
+  color: #CCC;
+  font-size: .8rem;
 }
 
 

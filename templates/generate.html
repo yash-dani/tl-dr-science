@@ -70,34 +70,35 @@
         </a>
       </form>
         {% else %}
-      <form method="POST" id="generate">
-        <textarea
-          id="textarea"
-          rows="1"
-          cols="100"
-          name="abstract"
-          id="abstract"
-          maxlength="2000"
-          onkeyup="count_up(this);"
-          placeholder="Enter some Science 🧬">
-        </textarea>
-        <span
-          class="footer"
-          style="float:left; margin: 5px; font-size:10px;"
-          id="count1">
-          0/2000
-        </span>
-        <br>
-        <br>
-        <button
-          type="submit"
-          id="submitting"
-          class="button btn btn-primary g-recaptcha ld-ext-left"
-          data-sitekey="{{ sitekey }}"
-          data-callback="onSubmit">
-          submit
-        </button>
-      </form>
+      <div class="form-container">
+        <form method="POST" id="generate">
+          <textarea
+            id="textarea"
+            rows="1"
+            cols="100"
+            name="abstract"
+            id="abstract"
+            maxlength="2000"
+            onkeyup="count_up(this);"
+            placeholder="Enter some Science 🧬">
+          </textarea>
+          <div
+            class="char-counter"
+            id="count1">
+            0/2000
+          </div>
+          <br>
+          <br>
+          <button
+            type="submit"
+            id="submitting"
+            class="button btn btn-primary g-recaptcha ld-ext-left"
+            data-sitekey="{{ sitekey }}"
+            data-callback="onSubmit">
+            submit
+          </button>
+        </form>
+      </div>
         {% endif %}
       <br>
       <div class="footer">
@@ -112,7 +113,6 @@
             This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply. Max 50 summaries a day, contact us for more.
           </p>
         </div>
-
       </div>
     </div>
   </body>
