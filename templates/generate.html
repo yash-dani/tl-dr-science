@@ -1,166 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
 <html>
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-		<title>tl;dr papers</title>
-		<script src='https://www.google.com/recaptcha/api.js'></script>
-		<link
-		  rel="stylesheet" type="text/css"
-		  href="//cdn.jsdelivr.net/gh/loadingio/ldbutton@v1.0.1/dist/ldbtn.min.css"
-		/>
-		<script type="text/javascript">
-			var onSubmit = function(response) {
-				document.getElementById("generate").submit();
-				$("#loading").show();
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@tldrpapers" />
+    <meta name="twitter:title" content="tl;dr papers" />
+    <meta name="twitter:image" content="https://i.imgur.com/o3S9ZOQ.png"/>
+    <meta name="twitter:text:title" content="tl;dr papers" />
+    <meta name="twitter:description" content="science abstracts for second graders. written by AI." />
+
+    <link rel="stylesheet" href="static/styles.css">
+    <title>tl;dr papers</title>
+
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <link
+      rel="stylesheet" type="text/css"
+      href="//cdn.jsdelivr.net/gh/loadingio/ldbutton@v1.0.1/dist/ldbtn.min.css"
+    />
+    <script type="text/javascript">
+    	var onSubmit = function(response) {
+    		document.getElementById("generate").submit();
+    		$("#loading").show();
             	$("#content").hide();
-			};
-		</script>
-		<script>
-		</script>
-		 <script type="text/javascript" src="{{ url_for('static', filename='process.js') }}"></script>
-		<link rel="apple-touch-icon" sizes="180x180" href="static/apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="static/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="static/favicon-16x16.png">
-		<link rel="manifest" href="static/site.webmanifest">
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-		<meta name="twitter:card" content="summary">
-		<meta name="twitter:site" content="@tldrpapers" />
-		<meta name="twitter:title" content="tl;dr papers" />
-		<meta name="twitter:image" content="https://i.imgur.com/o3S9ZOQ.png"/>
-		<meta name="twitter:text:title" content="tl;dr papers" />
-		<meta name="twitter:description" content="science abstracts for second graders. written by AI." />
+    	};
+    </script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='process.js') }}">
+    </script>
+    <link rel="apple-touch-icon" sizes="180x180" href="static/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/favicon-16x16.png">
+    <link rel="manifest" href="static/site.webmanifest">
+    <script
+      type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"
+    ></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap" rel="stylesheet">
 
-		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap" rel="stylesheet">
-	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-		<link rel="stylesheet" href="static/styles.css">
-
-	</head>
-	<body>
-		<div id="loading" style="display: none; font-size: 20px; position: absolute; top: 50%;left: 50%; transform: translate(-50%, -50%);">
-			<iframe src="https://giphy.com/embed/f9NaK0iIjpY5Vm80a0?video=0" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><br><br>
-			<p>making some science 👀<br>(this loading page is WIP)</p><br><br>
-		</div>
-		<div id="content" class="content form-group container-sm">
-			<h1 class="logo">📠</h1>
-			<h1>tl;dr papers</h1>
-      		<br>
-			<p>science abstracts a second grader can understand</p>
-			{% if message %}
-			<form method="GET">
-				<div class="card">
-					{{ message[0] }}
-				</div>
-
-
-		        <a href={{ url_for('generate') }}><button type="submit" class="btn btn-outline-primary">try again</button></a>
-
-			</form>
-    		{% else %}
-			<form method="POST" id="generate">
-		        <textarea id="textarea" rows="1" cols="100" name="abstract"
-		        id="abstract" maxlength="2000" onkeyup="count_up(this);" placeholder="Enter some Science 🧬"></textarea>
-		        <span class="footer" style="float:left; margin: 5px; font-size:10px;" id="count1">0/2000</span><br><br>
-
-		        <button type="submit" id="submitting" class="button btn btn-outline-primary g-recaptcha ld-ext-left" data-sitekey="{{ sitekey }}" data-callback="onSubmit">submit</button>
-		    </form>
-		    {% endif %}
-		    <br>
-		    <p class="footer">Powered by GPT-3. Results may not be perfect. <br><br>Made with &#10084;&#65039; by <a href="https://twitter.com/itsyashdani">Yash</a> & <a href="https://twitter.com/cindywu">Cindy.</a><br><br></p><p class="disclaimers">This site is protected by reCAPTCHA and the Google
-		    	<a href="https://policies.google.com/privacy">Privacy Policy</a> and
-    			<a href="https://policies.google.com/terms">Terms of Service</a> apply. Max 50 summaries a day, contact us for more.</p>
-		</div>
-	</body>
-	<style>
-		.disclaimers {
-		  color: #EBD4CB;
-		  font-family: 'Roboto', sans-serif;
-		  font-size: 10px;
-		}
-		/* unvisited link */
-		a:link {
-		  color: white;
-		  text-decoration: underline;
-		}
-
-		/* visited link */
-		a:visited {
-		  color: white;
-		  font-family: 'Roboto', sans-serif;
-		  font-size: 15px;
-		}
-
-		/* mouse over link */
-		a:hover {
-		  color: #EBD4CB;
-		}
-
-		/* selected link */
-		a:active {
-		  color: white;
-		}
-		a {
-		  color: white;
-		}
-		button {
-		  display: block;
-		  width: 25%;
-		  height: auto;
-		  border: none;
-		  color: white;
-		  background-color: #EE63DA;
-		  padding: 14px 28px;
-		  font-size: 16px;
-		  cursor: pointer;
-		  text-align: center;
-		  margin: 5px;
-		}
-		button:hover {
-		  color: #EBD4CB;
-		}
-		button:active {
-		  background-color: #EBD4CB;
-		}
-		button:focus {
-		  background-color: #EBD4CB;
-		}
-
-		form {
-		  height: auto;
-		  width: auto;
-		  font-size: 15px;
-		  text-align: center;
-		  font-family: 'Roboto', sans-serif;
-		  padding: 1%;
-		}
-		textarea {
-		    border-radius: 10px;
-		    border: 4px solid #EE63DA;
-		    padding: 20px;
-		    margin: 5px;
-		    width: 75%;
-		    min-width: 100%;
-		    -webkit-box-sizing: border-box;
-		    -moz-box-sizing: border-box;
-		    box-sizing: border-box;
-		    width: 100%;
-		    font-size: 15px;
-		    font-family: 'Roboto', sans-serif;
-		    color: black;
-
-		}
-		textarea:hover {
-		  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-		}
-		body {
-		  /* background-image: url('gpt3emailbkgnd.png'); */
-		  background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);
-		  color: white;
-		  height: auto;
-		  background-attachment: fixed;
-		  background-position: center;
-		  background-repeat: no-repeat;
-		  background-size: cover;
-		  max-width: 100%;
-		  overflow-x: hidden;
-		}
-	</style>
+  </head>
+  <body>
+    <div id="loading" style="display: none; font-size: 20px; position: absolute; top: 50%;left: 50%; transform: translate(-50%, -50%);">
+      <iframe
+        src="https://giphy.com/embed/f9NaK0iIjpY5Vm80a0?video=0" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+      <br>
+      <br>
+      <p>
+        making some science 👀
+        <br>
+        (this loading page is WIP)
+      </p>
+      <br>
+      <br>
+    </div>
+    <div id="content" class="content form-group container-sm">
+      <h1 class="logo">📠</h1>
+      <h1>tl;dr papers</h1>
+      <br>
+      <p>science abstracts a second grader can understand</p>
+        {% if message %}
+      <form method="GET">
+        <div class="card">{{ message[0] }}</div>
+        <a href={{ url_for('generate') }}>
+          <button type="submit" class="btn btn-outline-primary">
+            try again
+          </button>
+        </a>
+      </form>
+        {% else %}
+      <form method="POST" id="generate">
+        <textarea
+          id="textarea"
+          rows="1"
+          cols="100"
+          name="abstract"
+          id="abstract"
+          maxlength="2000"
+          onkeyup="count_up(this);"
+          placeholder="Enter some Science 🧬">
+        </textarea>
+        <span
+          class="footer"
+          style="float:left; margin: 5px; font-size:10px;"
+          id="count1">
+          0/2000
+        </span>
+        <br>
+        <br>
+        <button
+          type="submit"
+          id="submitting"
+          class="button btn btn-outline-primary g-recaptcha ld-ext-left"
+          data-sitekey="{{ sitekey }}"
+          data-callback="onSubmit">
+          submit
+        </button>
+      </form>
+        {% endif %}
+      <br>
+      <p class="footer">
+        Powered by GPT-3. Results may not be perfect.
+        <br>
+        <br>
+        Made with &#10084;&#65039; by <a href="https://twitter.com/itsyashdani">Yash</a> & <a href="https://twitter.com/cindywu">Cindy</a>.
+        <br>
+        <br>
+      </p>
+      <p class="disclaimers">
+        This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply. Max 50 summaries a day, contact us for more.
+      </p>
+    </div>
+  </body>
 </html>
