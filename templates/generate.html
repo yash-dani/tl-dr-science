@@ -1,118 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@tldrpapers" />
-    <meta name="twitter:title" content="tl;dr papers" />
-    <meta name="twitter:image" content="https://i.imgur.com/o3S9ZOQ.png"/>
-    <meta name="twitter:text:title" content="tl;dr papers" />
-    <meta name="twitter:description" content="science abstracts for second graders. written by AI." />
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@tldrpapers" />
+        <meta name="twitter:title" content="tl;dr papers" />
+        <meta name="twitter:image" content="https://i.imgur.com/o3S9ZOQ.png"/>
+        <meta name="twitter:text:title" content="tl;dr papers" />
+        <meta name="twitter:description" content="science abstracts for second graders. written by AI." />
 
-    <link rel="stylesheet" href="static/styles.css">
-    <title>tl;dr papers</title>
+        <link rel="stylesheet" href="static/styles.css">
+        <title>tl;dr papers</title>
 
-    <script src='https://www.google.com/recaptcha/api.js'></script>
-    <link
-      rel="stylesheet" type="text/css"
-      href="//cdn.jsdelivr.net/gh/loadingio/ldbutton@v1.0.1/dist/ldbtn.min.css"
-    />
-    <script type="text/javascript">
-    	var onSubmit = function(response) {
-    		document.getElementById("generate").submit();
-    		$("#loading").show();
-            	$("#content").hide();
-    	};
-    </script>
-    <script
-      type="text/javascript"
-      src="{{ url_for('static', filename='process.js') }}">
-    </script>
-    <link rel="apple-touch-icon" sizes="180x180" href="static/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="static/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="static/favicon-16x16.png">
-    <link rel="manifest" href="static/site.webmanifest">
-    <script
-      type="text/javascript"
-      src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"
-    ></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap" rel="stylesheet">
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+        <link
+        rel="stylesheet" type="text/css"
+        href="//cdn.jsdelivr.net/gh/loadingio/ldbutton@v1.0.1/dist/ldbtn.min.css"
+        />
+        <script type="text/javascript">
+            var onSubmit = function(response) {
+                document.getElementById("generate").submit();
+                $("#loading").show();
+                    $("#content").hide();
+            };
+        </script>
+        <script
+        type="text/javascript"
+        src="{{ url_for('static', filename='process.js') }}">
+        </script>
+        <link rel="apple-touch-icon" sizes="180x180" href="static/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="static/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="static/favicon-16x16.png">
+        <link rel="manifest" href="static/site.webmanifest">
+        <script
+        type="text/javascript"
+        src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"
+        ></script>
+        <script>
+            var observe;
+            if (window.attachEvent) {
+                observe = function (element, event, handler) {
+                    element.attachEvent('on' + event, handler);
+                };
+            }
+            else {
+                observe = function (element, event, handler) {
+                    element.addEventListener(event, handler, false);
+                };
+            }
+            function init() {
+                var text = document.getElementById('text');
+                function resize() {
+                    text.style.height = 'auto';
+                    text.style.height = text.scrollHeight + 'px';
+                }
+                /* 0-timeout to get the already changed text */
+                function delayedResize() {
+                    window.setTimeout(resize, 0);
+                }
+                observe(text, 'change', resize);
+                observe(text, 'cut', delayedResize);
+                observe(text, 'paste', delayedResize);
+                observe(text, 'drop', delayedResize);
+                observe(text, 'keydown', delayedResize);
 
-  </head>
-  <body>
-    <div id="loading" class="loading">
-      <iframe
-        src="https://giphy.com/embed/f9NaK0iIjpY5Vm80a0?video=0" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-       <div class="loading-text-container">
-        <div class="loading-text">
-          <p>👀</p>
-          <p>making some science</p>
+                text.focus();
+                text.select();
+                resize();
+            }
+        </script>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap" rel="stylesheet">
+    </head>
+    <body onload="init();">
+        <div id="loading" class="loading">
+            <iframe
+                src="https://giphy.com/embed/f9NaK0iIjpY5Vm80a0?video=0" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+            <div class="loading-text-container">
+                <div class="loading-text">
+                    <p>👀</p>
+                    <p>making some science</p>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div id="content" class="content">
-      <div class="header">
-        <h1 class="icon">📠</h1>
-        <h1 class="title">tl;dr papers</h1>
-        <p class="description">science abstracts a second grader can understand</p>
-      </div>
-        {% if message %}
-      <div class="results-container">
-        <form method="GET">
-          <!-- TODO: add a label such as "Here is your summary:" -->
-          <!-- TODO: click summary to copy text -->
-          <div class="card">
-            {{ message[0] }}
-          </div>
-          <a href={{ url_for('generate') }}>
-            <button
-              type="submit"
-              class="btn btn-primary">
-              try again
-            </button>
-          </a>
-        </form>
-      </div>
-        {% else %}
-      <div class="form-container">
-        <form method="POST" id="generate">
-          <textarea id="textarea" rows="2" cols="100" name="abstract" id="abstract" maxlength="2000" onkeyup="count_up(this);" placeholder="Enter some Science 🧬"></textarea>
-          <div
-            class="char-counter"
-            id="count1">
-            0/2000
-          </div>
-          <br>
-          <br>
-          <button
-            type="submit"
-            id="submitting"
-            class="button btn btn-primary g-recaptcha ld-ext-left"
-            data-sitekey="{{ sitekey }}"
-            data-callback="onSubmit">
-            submit
-          </button>
-        </form>
-      </div>
-        {% endif %}
-      <br>
-      <div class="footer">
-        <div class="footer-text">
-          <p>
-            Powered by GPT-3. Results may not be perfect.
-          </p>
-          <p>
-            Made with &#10084;&#65039; by <a href="https://twitter.com/itsyashdani">Yash</a> & <a href="https://twitter.com/cindywu">Cindy</a>.
-          </p>
-          <p class="disclaimer">
-            This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply. Max 50 summaries a day, contact us for more.
-          </p>
+        <div id="content" class="content-container">
+            <div class="header">
+                <h1 class="icon">📠</h1>
+                <h1 class="title">tl;dr papers</h1>
+                <p class="description">science abstracts a second grader can understand</p>
+            </div>
+            {% if message %}
+            <div class="results-container">
+                 <form method="GET">
+                    <div class="card">
+                        {{ message[0] }}
+                    </div>
+                    <a href={{ url_for('generate') }}>
+                        <button
+                            type="submit"
+                            class="btn btn-primary">
+                            try again
+                        </button>
+                    </a>
+                </form>
+            </div>
+            {% else %}
+            <div class="form-container">
+                <form method="POST" id="generate">
+                    <textarea id="text" rows="2" cols="100" name="abstract" id="abstract" maxlength="2000" onkeyup="count_up(this);" placeholder="Enter some science 🧬"></textarea>
+                    <div
+                        class="char-counter"
+                        id="count1">
+                        0/2000
+                    </div>
+                    <button
+                        type="submit"
+                        id="submitting"
+                        class="button btn btn-primary g-recaptcha ld-ext-left"
+                        data-sitekey="{{ sitekey }}"
+                        data-callback="onSubmit">
+                        submit
+                    </button>
+                </form>
+            </div>
+            {% endif %}
+            <div class="footer">
+                <div class="footer-text">
+                <p>
+                    Powered by GPT-3. Results may not be perfect.
+                </p>
+                <p>
+                    Made with &#10084;&#65039; by <a href="https://twitter.com/itsyashdani">Yash</a> & <a href="https://twitter.com/cindywu">Cindy</a>.
+                </p>
+                <p class="disclaimer">
+                    This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply. Max 50 summaries a day, contact us for more.
+                </p>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </body>
+    </body>
 </html>
