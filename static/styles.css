@@ -95,7 +95,7 @@ p {
 
 .form-container {
     margin: auto;
-    max-width: 600px;
+    max-width: 700px;
 }
 
 .char-counter {
@@ -104,7 +104,12 @@ p {
     text-align: right;
     color: #ccc;
     font-size: 0.8rem;
-    max-width: 600px;
+}
+
+@media (min-width: 768px) {
+    .char-counter {
+        width: 100%;
+    }
 }
 
 .card {
@@ -183,6 +188,14 @@ textarea {
 
 textarea:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 768px) {
+    textarea {
+        width: 100%;
+        max-width: 100%;
+        min-width: 100%;
+    }
 }
 
 .grecaptcha-badge {
