@@ -112,6 +112,11 @@ p {
     }
 }
 
+.results-container {
+    margin: auto;
+    max-width: 700px;
+}
+
 .card {
     width: 75%;
     -webkit-box-sizing: border-box;
@@ -133,6 +138,15 @@ p {
 .card:hover .card:focus {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     border: 4px solid #ee63da;
+}
+
+@media (min-width: 768px) {
+    .card {
+        width: 100%;
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 120px;
+    }
 }
 
 .icon {
@@ -162,6 +176,7 @@ p {
 
 form {
     height: auto;
+    min-height: 40px;
     width: auto;
     font-size: 1rem;
     text-align: center;
@@ -176,7 +191,6 @@ textarea {
     width: 75%;
     max-width: 75%;
     min-width: 75%;
-    min-height: 40px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     font-family: "Roboto", sans-serif;
