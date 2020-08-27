@@ -4,6 +4,7 @@ app = Flask(__name__)
 import gpt3
 import requests
 import json
+import re
 '''
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
@@ -27,6 +28,7 @@ def generate():
                     message = 'Your abstract was empty. Please try again. I do not understand.'
                 else:
                     message = gpt3.getGPT3(request.form['abstract'].replace("A:", "").replace("Here this is, made for a 2nd grader:",""))
+                    message[0].replace('\n','')
               else:
                 message= "You messed up the captcha. If you're a bot, you should probably give up."
            else:

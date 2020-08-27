@@ -8,6 +8,8 @@ import ast # standard library
 import openai # 3rd party packages
 import json
 import os
+import re
+
 '''
 	Function to turn informal request into transactional statement 
 '''
@@ -37,5 +39,10 @@ def getGPT3(request):
 	  max_tokens=2,
 	  stop=["'''"]
 	)
+
+	summary = output["choices"][0]["text"].replace('A: Here this is, made for a 2nd grader:','')
+	print(summary)
+	summary = re.sub("(?<=\.)[^.]*$","",summary)
+
 	#print(output["choices"][0]["text"])
-	return [output["choices"][0]["text"].replace('A: Here this is, made for a 2nd grader:',''), response["choices"][0]["text"]]
+	return [summary, response["choices"][0]["text"]]

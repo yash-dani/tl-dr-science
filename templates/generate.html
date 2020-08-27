@@ -82,7 +82,9 @@
                     <div class="card">
                         {{ message[0] }}
                     </div>
+                    {% if 'No' in message[1] %}
                         <p class="warning"> Our AI thinks this may not be a good summary. Consider resummarizing for a new result.</p>
+                    {% endif %}
                     <a href={{ url_for('generate') }}>
                         <button
                             type="submit"
