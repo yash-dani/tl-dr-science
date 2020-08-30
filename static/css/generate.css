@@ -1,7 +1,6 @@
 @import 'fonts.css';
 
 *, *::before, *::after {
-    font-family: Roboto, sans-serif;
     box-sizing: border-box;
 }
 
@@ -153,9 +152,7 @@ p {
 }
 
 .icon {
-    font-size: 100px;
     text-align: center;
-    margin: 0;
 }
 
 .title {
