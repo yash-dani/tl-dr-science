@@ -133,6 +133,7 @@ p {
     color: black;
     background-color: white;
     font-weight: 100;
+    cursor: pointer;
 }
 
 .card:hover .card:focus {
