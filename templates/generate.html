@@ -45,6 +45,15 @@
                     $("#content").hide();
             };
         </script>
+        <script>
+            function copyToClipboard(element) {
+                var $temp = $("<input>");
+                $("body").append($temp);
+                $temp.val($(element).text()).select();
+                document.execCommand("copy");
+                $temp.remove();
+            }
+        </script>
         <script
         type="text/javascript"
         src="{{ url_for('static', filename='process.js') }}">
@@ -79,7 +88,7 @@
             {% if message %}
             <div class="results-container">
                  <form method="GET">
-                    <div class="card">
+                    <div id="card" class="card" onclick="copyToClipboard('#card')">
                         {{ message[0] }}
                     </div>
                     <a href={{ url_for('generate') }}>
