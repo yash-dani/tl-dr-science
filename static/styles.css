@@ -74,6 +74,7 @@ p {
     font-family: "Roboto", sans-serif;
     position: relative;
     font-size: 1rem;
+    font-weight: normal;
 }
 
 .footer-text {
@@ -104,6 +105,7 @@ p {
     text-align: right;
     color: #ccc;
     font-size: 0.8rem;
+    font-weight: normal;
 }
 
 @media (min-width: 768px) {
