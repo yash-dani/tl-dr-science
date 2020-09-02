@@ -2,10 +2,18 @@
 <html lang="en">
 <html>
     <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-175302682-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-175302682-1');
+        </script>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
         <meta name="twitter:card" content="summary">
         <meta name="twitter:site" content="@tldrpapers" />
         <meta name="twitter:title" content="tl;dr papers" />
@@ -84,6 +92,9 @@
                     <div class="card">
                         {{ message[0] }}
                     </div>
+                    {% if 'No' in message[1] %}
+                        <p class="warning"> Our AI thinks this may not be a good summary. Consider resummarizing for a new result.</p>
+                    {% endif %}
                     <a href={{ url_for('generate') }}>
                         <button
                             type="submit"
