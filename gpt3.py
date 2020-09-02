@@ -33,7 +33,7 @@ def getGPT3(request):
 	  n = 8
 	) 
 	if output["choices"][0]["text"] in request:
-		respone = "No"
+		response = "No."
 	else:
 		response = openai.Completion.create(
 		  engine="davinci",
