@@ -13,11 +13,11 @@ This is a Flask app that uses openAI's GPT-3 in order to resummarize abstracts u
 ## Table of Contents
 
 - Installation
-  - [Try Without Installing](https://github.com/kentcdodds/generator-kcd-oss/blob/master/README.md#try-without-installing)
-- [Usage](https://github.com/kentcdodds/generator-kcd-oss/blob/master/README.md#usage)
+  - [Try Without Installing](https://github.com/yash-dani/readme/README.md#try-without-installing)
+- [Usage](https://github.com/yash-dani/readme/README.md#usage)
 - Issues
-  - [🐛 Bugs](https://github.com/kentcdodds/generator-kcd-oss/blob/master/README.md#-bugs)
-  - [💡 Feature Requests](https://github.com/kentcdodds/generator-kcd-oss/blob/master/README.md#-feature-requests)
+  - [🐛 Bugs](https://github.com/yash-dani/readme/README.md#-bugs)
+  - [💡 Feature Requests](https://github.com/yash-dani/tldr_papers/master/README.md#-feature-requests)
 - [Contributors ✨](https://github.com/kentcdodds/generator-kcd-oss/blob/master/README.md#contributors-)
 - [LICENSE](https://github.com/kentcdodds/generator-kcd-oss/blob/master/README.md#license)
 
