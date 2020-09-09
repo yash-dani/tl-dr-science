@@ -14,12 +14,12 @@ This is a Flask app that uses openAI's GPT-3 in order to resummarize abstracts u
 
 - Installation
   - [Try Without Installing](#try-without-installing)
-- [Usage](https://github.com/yash-dani/readme/README.md#usage)
+- [Usage](#usage)
 - Issues
-  - [🐛 Bugs](https://github.com/yash-dani/readme/README.md#-bugs)
-  - [💡 Feature Requests](https://github.com/yash-dani/tldr_papers/master/README.md#-feature-requests)
-- [Contributors ✨](https://github.com/kentcdodds/generator-kcd-oss/blob/master/README.md#contributors-)
-- [LICENSE](https://github.com/kentcdodds/generator-kcd-oss/blob/master/README.md#license)
+  - [🐛 Bugs](#-bugs)
+  - [💡 Feature Requests](#-feature-requests)
+- [Contributors ✨](#contributors)
+- [LICENSE](#license)
 
 ## Installation
 
