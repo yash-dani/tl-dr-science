@@ -82,6 +82,4 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 
 ## LICENSE
 
-MIT
-
-<details class="details-reset details-overlay details-overlay-dark" id="jumpto-line-details-dialog" style="box-sizing: border-box; display: block;"><summary data-hotkey="l" aria-label="Jump to line" role="button" style="box-sizing: border-box; display: list-item; cursor: pointer; list-style: none;"></summary></details>
+[MIT](LICENSE)
