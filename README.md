@@ -2,6 +2,7 @@
 
 Science abstract a second grader can understand. Built using GPT-3.
 
+![Demo](https://github.com/yash-dani/tldr_papers/blob/master/cutdog.gif)
 ------
 
 [![MIT License](https://camo.githubusercontent.com/df844ea7a369be75edbd0d3017f8f7406c1fa62d/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f6c2f67656e657261746f722d6b63642d6f73732e7376673f7374796c653d666c61742d737175617265)](https://github.com/kentcdodds/generator-kcd-oss/blob/master/LICENSE)  [![PRs Welcome](https://camo.githubusercontent.com/a34cfbf37ba6848362bf2bee0f3915c2e38b1cc1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5052732d77656c636f6d652d627269676874677265656e2e7376673f7374796c653d666c61742d737175617265)](http://makeapullrequest.com/) 
