@@ -1,6 +1,9 @@
 const Router = require('./router')
 const PromptGenerator = require('./gpt3/promptGenerator')
 
+
+/** CORS AND API REQUEST RELATED METHODS **/
+
 // from https://community.cloudflare.com/t/handling-preflight-requests/30260/4
 const corsHeaders = {
     'Access-Control-Allow-Origin': '*',
@@ -15,21 +18,10 @@ const responseAttrs = {
     },
 }
 
-const openaiRequest = payload => {
-    const request = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${OPENAI_KEY}`,
-        },
-        body: JSON.stringify(payload),
-    }
 
-    return fetch(
-        'https://api.openai.com/v1/engines/davinci/completions',
-        request
-    )
-}
+addEventListener('fetch', event => {
+    event.respondWith(handleRequest(event.request))
+})
 
 
 // Manages CORS headers
@@ -53,30 +45,52 @@ function handleOptions(request) {
     }
 }
 
+/** END CORS AND API REQUEST RELATED METHODS **/
 
-/**
- * Example of how router can be used in an application
- *  */
-addEventListener('fetch', event => {
-    event.respondWith(handleRequest(event.request))
-})
+
+const openaiRequest = payload => {
+    const request = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${OPENAI_KEY}`,
+        },
+        body: JSON.stringify(payload),
+    }
+
+    return fetch(
+        'https://api.openai.com/v1/engines/davinci/completions',
+        request
+    )
+}
+
+function getResponseErrors(body) {
+    const errorMessage = 'Your abstract was empty. Please try again. I do not understand.';
+    if (!body.abstract) {
+        var status = { "status" : 400};
+        return new Response(JSON.stringify(errorMessage), status)
+    }
+
+    if (body.abstract == '') {
+        return new Response(JSON.stringify(errorMessage), responseAttrs)
+    }
+
+    return null;
+}
 
 async function getResponse(request) {
     const body = await request.json()
 
-    if (!body.abstract) {
-        var status = { "status" : 400};
-        return new Response(JSON.stringify('Your abstract was empty. Please try again. I do not understand.'), status)
+    errors = getResponseErrors(body);
 
+    if (errors) {
+        return errors;
     }
 
-    if (body.abstract == '') {
-        return new Response(JSON.stringify('Your abstract was empty. Please try again. I do not understand.'), responseAttrs)
-    }
+    const promptStart = 'My second grader asked me what this passage means:\n\n"""'
+    const promptEnd = '\n"""\n\nI rephrased it for him, in plain language a second grader can understand:\n\n"""'
 
-    const prompt = 'My second grader asked me what this passage means:\n\n"""' + 
-    body.abstract + 
-    ' \n"""\n\nI rephrased it for him, in plain language a second grader can understand:\n\n"""'
+    const prompt = promptStart + body.abstract + promptEnd; 
 
     const payload = {
         prompt: prompt + "\n",
@@ -88,8 +102,10 @@ async function getResponse(request) {
         stop: ['"""']
     }
 
-    const response = await (await openaiRequest(payload)).json()
-    return new Response(JSON.stringify(response.choices[0].text), responseAttrs)
+    const response = await (await openaiRequest(payload)).json();
+    summarizedAbstract = response.choices[0].text.replaceAll("\n", "");
+    summarizedAbstract = summarizedAbstract.replace(/(?<=\.)[^.]*$"/,"")
+    return new Response(JSON.stringify(summarizedAbstract), responseAttrs)
 }
 
 async function handleRequest(request) {
@@ -98,7 +114,7 @@ async function handleRequest(request) {
     }
 
     const r = new Router()
-    // Replace with the appropriate paths and handlers
+
     r.post('.*/get_prompt', request => getPrompt(request))
     r.post('.*/get_response', request => getResponse(request))
 
