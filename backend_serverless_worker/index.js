@@ -8,6 +8,31 @@ const corsHeaders = {
     'Access-Control-Allow-Headers': 'Content-Type',
 }
 
+const responseAttrs = {
+    headers: {
+        'Content-Type': 'application/json;charset=UTF-8',
+        'Access-Control-Allow-Origin': '*',
+    },
+}
+
+const openaiRequest = payload => {
+    const request = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${OPENAI_KEY}`,
+        },
+        body: JSON.stringify(payload),
+    }
+
+    return fetch(
+        'https://api.openai.com/v1/engines/davinci/completions',
+        request
+    )
+}
+
+
+// Manages CORS headers
 function handleOptions(request) {
     if (
         request.headers.get('Origin') !== null &&
@@ -28,32 +53,6 @@ function handleOptions(request) {
     }
 }
 
-const responseAttrs = {
-    headers: {
-        'Content-Type': 'application/json;charset=UTF-8',
-        'Access-Control-Allow-Origin': '*',
-    },
-}
-
-const openaiRequest = payload => {
-    const request = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${OPENAI_KEY}`,
-        },
-        body: JSON.stringify(payload),
-    }
-
-    console.log('sending openai request with:')
-    console.log(request)
-
-
-    return fetch(
-        'https://api.openai.com/v1/engines/davinci/completions',
-        request
-    )
-}
 
 /**
  * Example of how router can be used in an application
@@ -64,12 +63,20 @@ addEventListener('fetch', event => {
 
 async function getResponse(request) {
     const body = await request.json()
+
+    if (!body.abstract) {
+        var status = { "status" : 400};
+        return new Response(JSON.stringify('Your abstract was empty. Please try again. I do not understand.'), status)
+
+    }
+
+    if (body.abstract == '') {
+        return new Response(JSON.stringify('Your abstract was empty. Please try again. I do not understand.'), responseAttrs)
+    }
+
     const prompt = 'My second grader asked me what this passage means:\n\n"""' + 
     body.abstract + 
     ' \n"""\n\nI rephrased it for him, in plain language a second grader can understand:\n\n"""'
-
-    console.log('prompt:')
-    console.log(prompt)
 
     const payload = {
         prompt: prompt + "\n",
@@ -81,27 +88,8 @@ async function getResponse(request) {
         stop: ['"""']
     }
 
-
     const response = await (await openaiRequest(payload)).json()
-    //return new Response(JSON.stringify(response), responseAttrs)
     return new Response(JSON.stringify(response.choices[0].text), responseAttrs)
-}
-
-async function getPrompt(request) {
-    const body = await request.json()
-    const response = PromptGenerator.generatePrompt(
-        body.adjectives,
-        body.experiences,
-        body.QApairs,
-        body.question
-    )
-
-    return new Response(
-        JSON.stringify({
-            prompt: response,
-        }),
-        responseAttrs
-    )
 }
 
 async function handleRequest(request) {
@@ -115,7 +103,6 @@ async function handleRequest(request) {
     r.post('.*/get_response', request => getResponse(request))
 
     r.get('/', () => new Response('Hello Cindy! Good to see you.')) // return a default message for the root route
-    r.post('/', () => new Response('Good to see you.')) // return a default message for the root route
 
     const resp = await r.route(request)
     return resp
