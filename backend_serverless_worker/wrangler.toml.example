@@ -1,0 +1,5 @@
+name = "autofill-js-api"
+type = "webpack"
+workers_dev = true
+route = ""
+zone_id = ""
