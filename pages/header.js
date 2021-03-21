@@ -7,6 +7,7 @@ export default function Header() {
       <Head>
         <title>tl;dr papers</title>
         <link rel="icon" href="/favicon.ico" />
+        <link rel="stylesheet" type="text/css" href="/nprogress.css" />
         <meta name="twitter:card" content="summary"/>
         <meta name="twitter:site" content="@tldrpapers" />
         <meta name="twitter:title" content="tl;dr papers" />
