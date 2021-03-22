@@ -102,10 +102,16 @@ async function getResponse(request) {
         stop: ['"""']
     }
 
-    const response = await (await openaiRequest(payload)).json();
-    summarizedAbstract = response.choices[0].text.replaceAll("\n", "");
+    const summary = await (await openaiRequest(payload)).json();
+    summarizedAbstract = summary.choices[0].text.replaceAll("\n", "");
     summarizedAbstract = summarizedAbstract.replace(/(?<=\.)[^.]*$"/,"")
-    return new Response(JSON.stringify(summarizedAbstract), responseAttrs)
+
+    finalObject = { 
+        'summary' : summarizedAbstract
+    }
+
+    return new Response(JSON.stringify(finalObject), responseAttrs)
+    //return new Response(JSON.stringify(summarizedAbstract), responseAttrs)
 }
 
 async function handleRequest(request) {
