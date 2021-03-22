@@ -1,7 +1,7 @@
 import Layout from '../components/layout'
 import Image from 'next/image'
 
-export default function Dog() {
+export default function Processing() {
   return (
     <Layout>
       <Image

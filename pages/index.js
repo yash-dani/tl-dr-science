@@ -3,7 +3,41 @@ import Layout from '../components/layout'
 import Footer from './footer'
 import Header from './header'
 import React, { useState } from 'react'
+import NProgress from 'nprogress'
+import axios from 'axios'
 
+
+function pause(milliseconds) {
+  var dt = new Date();
+  while ((new Date()) - dt <= milliseconds) { /* Do nothing */ }
+}
+
+async function onSubmit(abstract, setContent) {
+  console.log(abstract);
+  // Show the progress bar 
+  NProgress.start();
+
+  // Increase randomly
+  var interval = setInterval(function() { NProgress.inc(); }, 1000);   
+  const res = await axios({
+    method: 'post',
+    url: 'https://tldr_backend.daniyash19.workers.dev/get_response',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: {
+      abstract: abstract
+    },
+  }).catch((err) => {null});
+  if (res) {
+    setContent(res.data.summary); 
+  } else {
+    setContent('Something went wrong.');
+  }
+  clearInterval(interval);
+  NProgress.done();
+}
+  
 
 export default function Home() {
   const LimitedTextarea = ({ rows, cols, value, limit }) => {
@@ -15,7 +49,8 @@ export default function Home() {
       },
       [limit, setContent]
     );
-  
+
+
     return (
       <>
         <textarea
@@ -29,6 +64,8 @@ export default function Home() {
         <div className="char-counter">
           {content ? content.length : 0}/{limit}
         </div>
+        <br></br>
+        <button className="btn" onClick={() => {onSubmit(content, setContent)}}>Submit</button>
       </>
     )
   }
@@ -38,10 +75,6 @@ export default function Home() {
       <main>
         <Header/>
         <LimitedTextarea limit={2000}/>
-        <br></br>
-        <Link href="/summarizer">
-          <button className="btn">Submit</button>
-        </Link>
         <div className="footer">
           <Footer/>
         </div>

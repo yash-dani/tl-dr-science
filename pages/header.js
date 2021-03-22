@@ -18,9 +18,9 @@ export default function Header() {
         <meta name="description" content="science abstracts for second graders. written by AI."/>
         <meta name="image" content="https://i.imgur.com/o3S9ZOQ.png"/>
         {/* Schema.org for Google */}
-        <meta itemProp="name" content="tl;dr papers"/>
-        <meta itemProp="description" content="science abstracts for second graders. written by AI."/>
-        <meta itemProp="image" content="https://i.imgur.com/o3S9ZOQ.png"/>
+        <meta itemprop="name" content="tl;dr papers"/>
+        <meta itemprop="description" content="science abstracts for second graders. written by AI."/>
+        <meta itemprop="image" content="https://i.imgur.com/o3S9ZOQ.png"/>
         {/* Open Graph general (Facebook, Pinterest & Google+) */}
         <meta name="og:title" content="tl;dr papers"/>
         <meta name="og:description" content="science abstracts for second graders. written by AI."/>
