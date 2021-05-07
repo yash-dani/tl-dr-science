@@ -1,0 +1,12 @@
+.btn {
+  background: hsl(309, 80%, 66%);
+  border: none;
+  color: white;
+  padding: 1em 2em;
+  border-radius: 4px;
+}
+
+.btn:hover, .btn:focus {
+  background-color: hsl(309, 80%, 50%);
+  box-shadow: 0 0 5px 0 hsl(309, 80%, 30%);
+}

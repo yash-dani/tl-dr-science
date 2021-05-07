@@ -1,0 +1,20 @@
+.container {
+  text-align: center;
+}
+
+.textArea {
+  width: 400px;
+  border-radius: 8px;
+  padding: 1em;
+  border: 4px solid #ee63da;
+}
+
+.charCounter {
+  display: inline-block;
+  padding-right: 4em;
+  width: 100%;
+  text-align: right;
+  color: #ccc;
+  font-size: 0.8rem;
+  font-weight: normal;
+}

@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export default function Dog() {
   return (
-    <Layout>
+    <>
       <Image
         src="/science-dog.gif"
         height={360} 
@@ -12,6 +12,6 @@ export default function Dog() {
       />
       <p>👀</p>
       <p>making some science</p>
-    </Layout>
+    </>
   )
 }

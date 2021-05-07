@@ -1,0 +1,27 @@
+.container {
+  display: inline-block;
+  margin: 1rem 0;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.container a {
+  text-decoration: underline;
+  color: white;
+}
+
+.footerText {
+  font-size: .8rem;
+  padding-bottom: 1em;
+}
+
+.disclaimer {
+  font-size: 0.5rem;
+  color: #ccc;
+  padding: 0 3rem;
+  max-width: 480px;
+}
+
+.heart {
+  padding-right: .5em;
+}
