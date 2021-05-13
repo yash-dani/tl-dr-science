@@ -11,15 +11,15 @@ export default function Form() {
 
   async function onSubmit() {
     NProgress.start()
-  
+
     let interval = setInterval(
       function(){
         NProgress.inc()
-      }, 1000) 
-  
+      }, 1000)
+
     const res = await axios({
       method: 'post',
-      url: 'https://tldr_backend.daniyash19.workers.dev/get_response',
+      url: 'https://tldrbackend.daniyash19.workers.dev/get_response',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -27,7 +27,7 @@ export default function Form() {
         abstract: content
       },
     }).catch((err) => null)
-  
+
     if (res) {
       setResult(res.data.summary)
       console.log('result', result)
@@ -58,8 +58,8 @@ export default function Form() {
         />
       }
       <br></br>
-      <button 
-        className="btn" 
+      <button
+        className="btn"
         onClick={() => onSubmit()}
       >
         Submit

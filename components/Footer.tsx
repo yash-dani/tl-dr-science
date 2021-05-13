@@ -7,19 +7,19 @@ export default function Footer() {
       <div className={styles.footerText}>
         Powered by GPT-3. Results may not be perfect.
         <br/>
-        Made with{' '} 
+        Made with{' '}
         <span className={styles.heart}>&#10084;&#65039;</span>
         by{' '}
         <Link href="https://twitter.com/itsyashdani">
-          Yash 
-        </Link> 
-        {''} & {''} 
+          Yash
+        </Link>
+        {''} & {''}
         <Link href="https://twitter.com/cindywu">
           Cindy
         </Link>
         .
         <br/>
-        Follow{' '}  
+        Follow{' '}
         <Link href="https://twitter.com/tldrpapers">
           @tldrpapers
         </Link>

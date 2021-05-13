@@ -6,8 +6,8 @@ export default function Dog() {
     <>
       <Image
         src="/science-dog.gif"
-        height={360} 
-        width={480} 
+        height={360}
+        width={480}
         alt="fax logo"
       />
       <p>👀</p>
