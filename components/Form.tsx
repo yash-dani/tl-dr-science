@@ -38,32 +38,54 @@ export default function Form() {
     NProgress.done()
   }
 
+  function startOver(){
+    setContent('')
+    setResult('')
+  }
+
   return (
     <div className={styles.container}>
-      <textarea
-        className={styles.textArea}
-        onChange={e => setContent(e.target.value)}
-        placeholder="Enter some science 🧬"
-        value={content}
-      />
-      <div className={styles.charCounter}>
-        {content ? content.length : 0}/{limit}
-      </div>
-      {result &&
-         <textarea
-          className={styles.textArea}
-          onChange={e => setContent(e.target.value)}
-          placeholder="Enter some science 🧬"
-          value={result}
-        />
+      { result
+        ?
+        <div>
+          <div>
+            <div className={styles.result}>{result}</div>
+          </div>
+
+          <button
+            className="btn btn-secondary"
+            onClick={() => startOver()}
+          >
+            Start over
+          </button>
+          <button
+            className="btn"
+            onClick={() => onSubmit()}
+          >
+            Try again
+          </button>
+        </div>
+        :
+        <div>
+          <textarea
+            className={styles.textArea}
+            onChange={e => setContent(e.target.value)}
+            placeholder="Enter some science 🧬"
+            value={content}
+          />
+          <div className={styles.charCounter}>
+            {content ? content.length : 0}/{limit}
+          </div>
+
+          <br></br>
+          <button
+            className="btn"
+            onClick={() => onSubmit()}
+          >
+            Submit
+          </button>
+        </div>
       }
-      <br></br>
-      <button
-        className="btn"
-        onClick={() => onSubmit()}
-      >
-        Submit
-      </button>
     </div>
   )
 }

@@ -4,9 +4,14 @@
 
 .textArea {
   width: 400px;
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 1em;
-  border: 4px solid #ee63da;
+  border: 3px solid #ee63da;
+}
+
+.textArea:focus {
+  border: 3px solid #ee63da;
+  outline: none;
 }
 
 .charCounter {
@@ -17,4 +22,18 @@
   color: #ccc;
   font-size: 0.8rem;
   font-weight: normal;
+}
+
+.result {
+  margin: 1em auto;
+  width: 400px;
+  background-color: hsla(0, 0%, 97%, 10%);
+  padding: 1em;
+  text-align: left;
+  border-radius: 8px;
+  font-size: .8em;
+}
+
+.title {
+  font-weight: 700;
 }
