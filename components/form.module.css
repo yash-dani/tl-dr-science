@@ -3,7 +3,7 @@
 }
 
 .textArea {
-  width: 400px;
+  width: 100%;
   border-radius: 6px;
   padding: 1em;
   border: 3px solid #ee63da;
@@ -16,17 +16,16 @@
 
 .charCounter {
   display: inline-block;
-  padding-right: 4em;
   width: 100%;
   text-align: right;
-  color: #ccc;
+  color: hsla(0, 0%, 97%, 50%);
   font-size: 0.8rem;
   font-weight: normal;
 }
 
 .result {
   margin: 1em auto;
-  width: 400px;
+  width: 100%;
   background-color: hsla(0, 0%, 97%, 10%);
   padding: 1em;
   text-align: left;
