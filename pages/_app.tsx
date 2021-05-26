@@ -1,6 +1,5 @@
 import '../styles/global.css'
 import Router from 'next/router'
-
 import NProgress from 'nprogress'
 
 Router.events.on('routeChangeStart', (url) => {
@@ -10,6 +9,10 @@ Router.events.on('routeChangeStart', (url) => {
 Router.events.on('routeChangeComplete', () => NProgress.done())
 Router.events.on('routeChangeError', () => NProgress.done())
 
-export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />
+type Props = {
+  Component: React.ComponentClass
+}
+
+export default function App({ Component }: Props) {
+  return <Component />
 }
