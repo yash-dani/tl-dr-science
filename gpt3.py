@@ -44,9 +44,6 @@ def getGPT3(request):
 		)
 
 	summary = output["choices"][0]["text"].replace('A: Here this is, made for a 2nd grader:','')
-	#print(summary)
 	summary = re.sub("(?<=\.)[^.]*$","",summary)
-
-	#print(output["choices"][0]["text"])
-	print([summary, response["choices"][0]["text"]]) 
+	
 	return [summary, response["choices"][0]["text"]]

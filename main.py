@@ -5,19 +5,12 @@ import gpt3
 import requests
 import json
 import re
-'''
-from flask_limiter import Limiter
-from flask_limiter.util import get_remote_address
 
-limiter = Limiter(
-    app,
-    key_func=get_remote_address,
-    default_limits=["2 per minute", "1 per second"],
-)
-'''
 @app.route('/', methods=['post', 'get'])
-#@limiter.limit("5 per day")
 def generate():
+    '''
+        Clean and submit data to GPT-3 if needed. If not, displays form.
+    '''
     sitekey = "6LcaSboZAAAAACK98x__otD9iW_7KXhSdAXYmT_H"
     message = ''
     if request.method == 'POST':
@@ -36,6 +29,7 @@ def generate():
         #print(message)
         
     return render_template('generate.html', message=message, sitekey=sitekey)
+
 
 def is_human(captcha_response):
     """ 
