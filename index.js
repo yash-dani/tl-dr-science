@@ -124,7 +124,7 @@ async function handleRequest(request) {
     r.post('.*/get_prompt', request => getPrompt(request))
     r.post('.*/get_response', request => getResponse(request))
 
-    r.get('/', () => new Response('Hello Cindy! Good to see you.')) // return a default message for the root route
+    r.get('/', () => new Response('Hello! Good to see you.')) // return a default message for the root route
 
     const resp = await r.route(request)
     return resp
