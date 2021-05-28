@@ -1,0 +1,10 @@
+.container {
+  min-height: 100vh;
+  padding: 0 0.5rem;
+  color: white;
+  background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
