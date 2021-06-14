@@ -1,6 +1,7 @@
 import '../styles/global.css'
 import Router from 'next/router'
 import NProgress from 'nprogress'
+import { ResponseProvider } from '../components/ResponseProvider'
 
 Router.events.on('routeChangeStart', (url) => {
   NProgress.start()
@@ -14,5 +15,9 @@ type Props = {
 }
 
 export default function App({ Component }: Props) {
-  return <Component />
+  return (
+    <ResponseProvider>
+      <Component />
+    </ResponseProvider>
+  )
 }

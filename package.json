@@ -12,7 +12,9 @@
     "next": "^10.2.3",
     "nprogress": "^0.2.0",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "uuid": "^8.3.2",
+    "uuidv4": "^6.2.10"
   },
   "devDependencies": {
     "@types/react": "^17.0.5",

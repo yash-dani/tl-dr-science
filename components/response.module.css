@@ -1,0 +1,15 @@
+.container {
+  margin: auto;
+  width: 100%;
+  text-align: left;
+  font-size: .8em;
+  display: flex;
+  justify-content: space-between;
+  background-color: hsla(216.7, 96.6%, 46.5%, 20%);
+  margin: 2em;
+}
+
+.left, .right {
+  width: 50%;
+  margin: 2em;
+}

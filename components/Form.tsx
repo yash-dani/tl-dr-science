@@ -2,9 +2,12 @@ import React, { useState } from 'react'
 import NProgress from 'nprogress'
 import axios from 'axios'
 import styles from './form.module.css'
-
+import { v4 as uuidv4 } from 'uuid'
+import Link from 'next/link'
+import { useResponses } from './ResponseProvider'
 
 export default function Form() {
+  const { handleResponseAdd } = useResponses()
   const limit = 2000
   const [content, setContent] = useState<string>('')
   const [result, setResult] = useState<string>('')
@@ -30,6 +33,12 @@ export default function Form() {
 
     if (res) {
       setResult(res.data.summary)
+      const newResponse = {
+        id: uuidv4(),
+        input: content,
+        response: res.data.summary
+      }
+      handleResponseAdd(newResponse)
       console.log('result', result)
     } else {
       setResult('Something went wrong.')
@@ -47,8 +56,8 @@ export default function Form() {
     <div className={styles.container}>
       { result
         ?
-        <div>
-          <div className={styles.textAreaContainer}>
+        <div className={styles.textAreaContainer}>
+          <div>
             <div className={styles.result}>{result}</div>
           </div>
 
@@ -76,7 +85,6 @@ export default function Form() {
           <div className={styles.charCounter}>
             {content ? content.length : 0}/{limit}
           </div>
-
           <br></br>
           <button
             className="btn"
@@ -86,6 +94,11 @@ export default function Form() {
           </button>
         </div>
       }
+      <div className={styles.history}>
+        <Link href="/history">
+          View history
+        </Link>
+      </div>
     </div>
   )
 }
