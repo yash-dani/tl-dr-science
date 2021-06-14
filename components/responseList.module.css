@@ -1,0 +1,15 @@
+.container {
+  width: 800px;
+}
+
+.header {
+  text-align: center;
+  padding-left: 2em;
+  width: 800px;
+}
+
+.header a {
+  text-decoration: underline;
+  color: white;
+  font-size: .8em;
+}

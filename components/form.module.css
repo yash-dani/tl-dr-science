@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+.textAreaContainer {
+  width: 300px;
+}
+
 .textArea {
   width: 100%;
   border-radius: 6px;
@@ -35,4 +39,14 @@
 
 .title {
   font-weight: 700;
+}
+
+.history {
+  padding-top: 2em;
+}
+
+.history a {
+  text-decoration: underline;
+  color: white;
+  font-size: .8em;
 }
