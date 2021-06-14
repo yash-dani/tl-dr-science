@@ -48,7 +48,7 @@ export default function Form() {
       { result
         ?
         <div>
-          <div>
+          <div className={styles.textAreaContainer}>
             <div className={styles.result}>{result}</div>
           </div>
 
@@ -66,7 +66,7 @@ export default function Form() {
           </button>
         </div>
         :
-        <div>
+        <div className={styles.textAreaContainer}>
           <textarea
             className={styles.textArea}
             onChange={e => setContent(e.target.value)}
