@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+.textAreaContainer {
+  width: 300px;
+}
+
 .textArea {
   width: 100%;
   border-radius: 6px;
